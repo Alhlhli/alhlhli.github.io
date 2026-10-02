@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>السيرة الذاتية - عامر عبده محمد عامر | CV - Amer Abdo Mohammed Amer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007bff; 
+            --secondary-color: #6c757d; 
+            --accent-color: #28a745; 
+            --page-bg: #eef2f7; 
+            --container-bg: #ffffff;
+            --header-bg: #f8f9fa; 
+            --summary-bg: #f0f9ff; 
+            --dark-text: #212529; 
+            --light-text: #495057; 
+            --card-bg: #ffffff;
+            --border-color: #dee2e6;
+            --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.07); 
+            --card-hover-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px; 
+        }
+
+        body.dark-mode {
+            --primary-color: #0d6efd; 
+            --accent-color: #198754;  
+            --page-bg: #1a1a1a;
+            --container-bg: #2c2c2c;
+            --header-bg: #232323;
+            --summary-bg: #2a3035;
+            --dark-text: #e0e0e0;
+            --light-text: #adb5bd;
+            --card-bg: #343a40;
+            --border-color: #495057;
+            --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            --card-hover-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+
+        body { 
+            font-family: 'Cairo', 'Open Sans', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: var(--page-bg); 
+            color: var(--dark-text); 
+            line-height: 1.8; 
+            font-size: 16px; 
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        html[lang="en"] body { 
+            font-family: 'Open Sans', 'Cairo', sans-serif;
+        }
+
+        .container { 
+            width: 90%; 
+            max-width: 1000px; 
+            margin: 40px auto; 
+            background-color: var(--container-bg); 
+            padding: 0; 
+            border-radius: var(--border-radius); 
+            box-shadow: var(--card-shadow); 
+            overflow: hidden; 
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .controls-container { 
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            padding: 15px 40px;
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--border-color); 
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .controls-group-left { /* مجموعة أزرار اللغة والطباعة */
+            display: flex;
+            gap: 10px; /* مسافة بين الأزرار */
+        }
+
+
+        #langToggleButton, #printButton {
+            padding: 10px 18px;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: 600;
+            transition: background-color 0.25s ease, transform 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        #langToggleButton { background-color: var(--accent-color); }
+        #printButton { background-color: var(--primary-color); }
+
+        #langToggleButton:hover { background-color: #218838; transform: translateY(-2px); }
+        #printButton:hover { background-color: #0056b3; transform: translateY(-2px); }
+        
+        /* زر الوضع المظلم المتنقل */
+        #floatingThemeToggleButton {
+            position: fixed;
+            bottom: 25px;
+            right: 25px; /* لـ RTL، سيكون أسفل اليسار */
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5em; /* حجم الأيقونة */
+            font-weight: 600;
+            transition: background-color 0.25s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* لضمان ظهوره فوق العناصر الأخرى */
+        }
+        #floatingThemeToggleButton:hover { 
+            background-color: #5a6268; 
+            transform: translateY(-2px) scale(1.1);
+        }
+        html[dir="ltr"] #floatingThemeToggleButton {
+            right: auto;
+            left: 25px; /* لـ LTR، سيكون أسفل اليسار */
+        }
+
+
+        header { 
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            text-align: center; 
+            padding: 25px 40px; 
+            background-color: var(--header-bg);
+            border-bottom: 3px solid var(--primary-color); 
+            margin-bottom: 0; 
+            position: relative; 
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .header-main-content { 
+            display: flex;
+            flex-direction: row; 
+            align-items: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .profile-image-container {
+            width: 140px; 
+            height: 140px;
+            border-radius: 50%;
+            background-color: #e0e0e0; 
+            margin-left: 30px; 
+            margin-right: 0; 
+            overflow: hidden;
+            border: 5px solid var(--primary-color); 
+            box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+            flex-shrink: 0; 
+            order: 2; 
+            transition: border-color 0.3s ease;
+        }
+        .profile-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-text-content {
+            flex-grow: 1; 
+            order: 1; 
+            text-align: right;
+        }
+
+        .header-text-content h1 { 
+            margin-bottom: 8px; 
+            color: var(--primary-color); 
+            font-size: 2.5em; 
+            font-weight: 900; 
+            transition: color 0.3s ease;
+        }
+        .header-text-content .subtitle { 
+            margin: 5px 0 15px; 
+            font-size: 1.25em; 
+            color: var(--light-text); 
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+         .header-text-content > p { 
+            margin: 5px 0;
+            font-size: 1em;
+            color: var(--dark-text);
+            transition: color 0.3s ease;
+        }
+
+        .contact-info {
+            width: 100%; 
+            order: 3; 
+            text-align: center; 
+            margin-top: 25px; 
+            padding-top: 25px; 
+            border-top: 1px dashed var(--border-color); 
+            transition: border-color 0.3s ease;
+        }
+        .contact-info p {
+            margin: 6px 0;
+            font-size: 1em; 
+            color: var(--dark-text);
+            transition: color 0.3s ease;
+        }
+        .contact-info strong { 
+            color: var(--primary-color); 
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+        .contact-info a { 
+            color: var(--accent-color); 
+            text-decoration: none;
+            margin: 0 5px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        .contact-info a:hover { 
+            text-decoration: underline;
+        }
+        body.dark-mode .contact-info a:hover { color: #38c172; }
+        body:not(.dark-mode) .contact-info a:hover { color: #1e7e34; }
+
+        .icon { 
+            margin-right: 10px; 
+            margin-left: 0;   
+            color: var(--primary-color);
+            font-size: 1.1em; 
+            vertical-align: middle;
+            transition: color 0.3s ease;
+        }
+
+        h2 { 
+            color: var(--primary-color); 
+            border-bottom: 2px solid var(--border-color); 
+            padding-bottom: 15px; 
+            margin-top: 0; 
+            margin-bottom: 25px;
+            font-size: 1.8em; 
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+        h2 .icon { font-size: 0.9em; margin-left:12px; margin-right:0; color: var(--primary-color); transition: color 0.3s ease;} 
+        
+
+        .section { 
+            padding: 30px 40px; 
+            margin-bottom: 0; 
+            transition: background-color 0.3s ease;
+        }
+        #summary.section { 
+            background-color: var(--summary-bg);
+        }
+
+        .section-content {
+            padding: 0; 
+        }
+        .section-content > p { 
+            font-size: 1.05em; 
+            color: var(--light-text);
+            margin-bottom: 20px; 
+            transition: color 0.3s ease;
+        }
+        
+        .job { 
+            margin-bottom: 30px; 
+            padding: 20px 25px; 
+            background-color: var(--card-bg); 
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            border-right: 5px solid var(--accent-color); 
+            position: relative;
+            box-shadow: 0 3px 7px rgba(0,0,0,0.04);
+            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .job:hover {
+            box-shadow: var(--card-hover-shadow);
+            transform: translateY(-3px);
+        }
+
+        .job-title { 
+            font-weight: 700; 
+            font-size: 1.25em; 
+            color: var(--primary-color); 
+            margin-bottom: 6px;
+            transition: color 0.3s ease;
+        }
+        .company-date { 
+            font-style: normal; 
+            color: var(--secondary-color); 
+            margin-bottom: 12px; 
+            font-size: 0.95em;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .job ul, .projects-list-regular { 
+            list-style-type: none; 
+            padding-right: 0; 
+            margin-top: 10px;
+        }
+        .job ul li, .projects-list-regular li {
+            margin-bottom: 8px;
+            font-size: 1em;
+            color: var(--light-text);
+            position: relative;
+            padding-right: 30px; 
+            transition: color 0.3s ease;
+        }
+        .job ul li::before, .projects-list-regular li::before { 
+            content: '❖'; 
+            position: absolute;
+            right: 0;
+            top: 1px; 
+            color: var(--accent-color);
+            font-size: 1em; 
+            transition: color 0.3s ease;
+        }
+
+
+        .interactive-card-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 20px; 
+        }
+        .interactive-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 20px; 
+            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.25s ease, box-shadow 0.25s ease;
+            font-size: 1em;
+            box-shadow: var(--card-shadow);
+            display: flex; 
+            flex-direction: column; 
+        }
+        .interactive-card:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: var(--card-hover-shadow);
+            border-color: var(--accent-color);
+        }
+        .interactive-card .job-title { 
+             font-size: 1.1em; 
+             color: var(--primary-color);
+             margin-bottom: 6px;
+             transition: color 0.3s ease;
+        }
+        .interactive-card .company-date { 
+            font-size: 0.9em;
+             margin-bottom: 8px;
+             color: var(--secondary-color);
+             transition: color 0.3s ease;
+        }
+        .interactive-card p { 
+            margin-top: 0;
+            margin-bottom: 10px; 
+            color: var(--light-text);
+            transition: color 0.3s ease;
+        }
+        .interactive-card p:last-child {
+             margin-bottom: 0;
+        }
+        .list-item-icon { 
+             margin-left: 10px; 
+             margin-right: 0;
+             color: var(--accent-color); 
+             font-size: 1.05em; 
+             vertical-align: middle;
+             transition: color 0.3s ease;
+        }
+         .interactive-card strong { 
+            color: var(--primary-color); 
+            font-weight: 700; 
+            transition: color 0.3s ease;
+        }
+
+
+        .skills-category { 
+            margin-bottom:30px;
+        }
+        .skills-category:last-child {
+            margin-bottom: 0;
+        }
+        .skills-category > h4 { 
+            color: var(--primary-color); 
+            margin-bottom: 15px; 
+            font-size: 1.25em; 
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed var(--border-color);
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+         .skills-category > h4 .list-item-icon { 
+             margin-right: 0; margin-left: 10px; 
+             font-size: 0.95em;
+             color: var(--primary-color);
+             transition: color 0.3s ease;
+        }
+        .skills-list { 
+            list-style: none;
+            padding: 0;
+            margin-top: 8px; 
+        }
+        .skills-list li {
+            margin-bottom: 10px; 
+            font-size: 1em;
+            display: flex; 
+            align-items: center; 
+            color: var(--light-text);
+            transition: color 0.3s ease;
+        }
+        .software-logo-placeholder {
+            display: inline-block;
+            width: 20px; 
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 1.2em; 
+            color: var(--secondary-color); 
+            margin-left: 8px; 
+            margin-right: 0;
+            vertical-align: middle;
+            transition: color 0.3s ease;
+        }
+        .skills-list .list-item-icon { 
+             margin-right: 0; margin-left: 8px; 
+             font-size: 1em;
+             color: var(--accent-color);
+             transition: color 0.3s ease;
+        }
+        .interactive-card .skills-category-title { 
+            font-weight: 700;
+            color: var(--dark-text);
+            margin-bottom: 12px;
+            font-size: 1.05em;
+            padding-bottom: 6px;
+            transition: color 0.3s ease;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 40px; 
+            margin-top: 0; 
+            font-size: 1em;
+            color: var(--secondary-color);
+            background-color: var(--header-bg); 
+            border-top: 2px solid var(--primary-color); 
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+        .whatsapp-contact {
+            margin-top: 15px;
+            font-size: 1.05em;
+        }
+        .whatsapp-contact a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .whatsapp-contact a:hover {
+            text-decoration: underline;
+        }
+        .whatsapp-contact .icon {
+            color: var(--accent-color); /* استخدام نفس لون الرابط */
+            font-size: 1.2em;
+        }
+
+
+        /* Language Specific Styling */
+        .lang-en { display: none; } 
+        
+        html[dir="ltr"] body { font-family: 'Open Sans', 'Cairo', sans-serif; }
+        html[dir="ltr"] .controls-container { 
+             /* لا تغيير كبير هنا، اتجاه النص يتحكم به dir */
+        }
+        html[dir="ltr"] .icon { margin-left: 10px; margin-right: 0; } 
+        
+        html[dir="ltr"] .header-main-content {
+            flex-direction: row; 
+        }
+        html[dir="ltr"] .profile-image-container {
+            margin-left: 0; 
+            margin-right: 30px; 
+            order: 1; 
+        }
+        html[dir="ltr"] .header-text-content {
+            order: 2; 
+            text-align: left;
+        }
+         html[dir="ltr"] .header-text-content h1,
+         html[dir="ltr"] .header-text-content .subtitle,
+         html[dir="ltr"] .header-text-content > p {
+            text-align: left;
+        }
+        html[dir="ltr"] .contact-info {
+             text-align: center; 
+        }
+
+        html[dir="ltr"] .job { 
+            border-left: 5px solid var(--accent-color); 
+            border-right: 1px solid var(--border-color); 
+        }
+        html[dir="ltr"] .job::before { 
+            content: none;
+        }
+
+
+        html[dir="ltr"] .software-logo-placeholder {
+            margin-left: 0;
+            margin-right: 8px; 
+        }
+        html[dir="ltr"] .job ul, html[dir="ltr"] .projects-list-regular {
+            padding-left: 0; padding-right:0; 
+        }
+        html[dir="ltr"] .job ul li, html[dir="ltr"] .projects-list-regular li {
+            padding-left: 30px; padding-right: 0; 
+        }
+        html[dir="ltr"] .job ul li::before, html[dir="ltr"] .projects-list-regular li::before { 
+            left: 0; right: auto;
+        }
+        html[dir="ltr"] .interactive-card .list-item-icon { margin-left: 0; margin-right: 10px; }
+        html[dir="ltr"] .skills-category > h4 .list-item-icon { margin-left: 0; margin-right: 10px; }
+        html[dir="ltr"] .skills-list .list-item-icon { margin-left: 0; margin-right: 8px; }
+
+        /* Print Styles */
+        @media print {
+            body {
+                font-size: 9pt !important; /* تصغير إضافي للخط */
+                background-color: #fff !important; 
+                color: #000 !important; 
+                margin: 0;
+                padding: 0;
+                -webkit-print-color-adjust: exact !important; /* لضمان طباعة الألوان إذا وجدت */
+                print-color-adjust: exact !important;
+            }
+            .container {
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0.5cm !important; /* هوامش طباعة أقل */
+                box-shadow: none !important;
+                border-radius: 0 !important;
+            }
+            .controls-container, #floatingThemeToggleButton {
+                display: none !important; 
+            }
+            header, .section, footer {
+                padding: 5px 0 !important; 
+                margin-bottom: 10px !important;
+                background-color: transparent !important; 
+                border-color: #ccc !important; 
+            }
+             header { border-bottom: 1px solid #000 !important; padding-bottom:10px !important; }
+             footer { border-top: 1px solid #000 !important; margin-top: 15px; padding-top:10px !important;}
+
+
+            h1, h2, h3, h4, p, li {
+                color: #000 !important; 
+            }
+            h1 { font-size: 16pt !important; }
+            h2 { font-size: 12pt !important; margin-bottom: 8px !important; padding-bottom: 4px !important;}
+            .job-title, .interactive-card .job-title { font-size: 10pt !important; }
+            .company-date, .interactive-card .company-date { font-size: 8pt !important; margin-bottom: 4px !important;}
+            
+            .interactive-card-list {
+                display: flex !important; /* محاولة جعل البطاقات متجاورة */
+                flex-wrap: wrap !important; /* السماح بالالتفاف إذا لم تكن هناك مساحة */
+                gap: 5px !important; /* تقليل المسافة بين البطاقات */
+            }
+            .interactive-card, .job {
+                padding: 8px !important; 
+                margin-bottom: 8px !important;
+                box-shadow: none !important;
+                border: 1px solid #ddd !important; 
+                page-break-inside: avoid !important; 
+                flex: 1 1 200px; /* السماح للبطاقات بالتقلص والتمدد */
+                min-width: 180px; /* حد أدنى لعرض البطاقة */
+            }
+            .profile-image-container {
+                width: 70px !important;
+                height: 70px !important;
+                border-width: 2px !important;
+                margin: 0 10px 10px 0 !important; /* تعديل الهوامش للطباعة */
+            }
+            html[dir="ltr"] .profile-image-container {
+                 margin: 0 0 10px 10px !important;
+            }
+            .header-main-content {
+                margin-bottom: 10px !important; /* تقليل المسافة */
+            }
+            .contact-info {
+                margin-top:10px !important; padding-top:10px !important; font-size: 8pt !important;
+            }
+
+            .icon, .list-item-icon, .software-logo-placeholder {
+                font-size: 0.8em !important; 
+                color: #333 !important;
+            }
+            a { color: #007bff !important; text-decoration: none !important; } 
+            
+            .whatsapp-contact {
+                font-size: 9pt !important;
+                margin-top: 10px !important;
+            }
+            /* لا يمكن إضافة ترقيم الصفحات "س من ص" بشكل موثوق عبر CSS */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="controls-container">
+            <div class="controls-group-left">
+                <div class="lang-toggle-container">
+                    <button id="langToggleButton">Switch to English</button>
+                </div>
+                <div class="print-button-container">
+                    <button id="printButton">
+                        <span lang="ar" class="lang-ar">طباعة</span>
+                        <span lang="en" class="lang-en">Print</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <button id="floatingThemeToggleButton" aria-label="Toggle theme">
+             ☀️
+        </button>
+
+
+        <header>
+            <div class="header-main-content">
+                <div class="profile-image-container">
+                    </div>
+                <div class="header-text-content">
+                    <h1>
+                        <span lang="ar" class="lang-ar">عامر عبده محمد عامر</span>
+                        <span lang="en" class="lang-en">Amer Abdo Mohammed Amer</span>
+                    </h1>
+                    <p class="subtitle">
+                        <span lang="ar" class="lang-ar">مهندس معماري وتخطيط</span>
+                        <span lang="en" class="lang-en">Architect and Planner</span>
+                    </p>
+                    <p>
+                        <span lang="ar" class="lang-ar">عضوية هيئة المهندسين السعوديين: 422384</span>
+                        <span lang="en" class="lang-en">Saudi Council of Engineers Membership: 422384</span>
+                    </p>
+                </div>
+            </div>
+            <div class="contact-info">
+                <p>
+                    <span class="icon">📞</span>
+                    <strong>
+                        <span lang="ar" class="lang-ar">الجوال:</span>
+                        <span lang="en" class="lang-en">Mobile:</span>
+                    </strong> 
+                    <a href="tel:+966593978687">+966593978687</a> | <a href="tel:+966504667646">+966504667646</a>
+                </p>
+                <p>
+                    <span class="icon">📧</span>
+                    <strong>
+                        <span lang="ar" class="lang-ar">البريد الإلكتروني:</span>
+                        <span lang="en" class="lang-en">Email:</span>
+                    </strong> 
+                    <a href="mailto:alhlhli@gmail.com">alhlhli@gmail.com</a> | <a href="mailto:Amer@msaken-aljazeera.com">Amer@msaken-aljazeera.com</a>
+                </p>
+                <p>
+                    <span class="icon">📍</span>
+                    <strong>
+                        <span lang="ar" class="lang-ar">العنوان:</span>
+                        <span lang="en" class="lang-en">Address:</span>
+                    </strong> 
+                    <span lang="ar" class="lang-ar">القصيم - بريدة، المملكة العربية السعودية</span>
+                    <span lang="en" class="lang-en">Al-Qassim - Buraydah, Saudi Arabia</span>
+                </p>
+                <p>
+                    <span class="icon">🔗</span>
+                    <strong>LinkedIn:</strong> 
+                    <a href="https://linkedin.com/alhlhli" target="_blank">linkedin.com/alhlhli</a>
+                </p>
+            </div>
+        </header>
+
+        <section id="summary" class="section">
+            <h2>
+                <span class="icon">👤</span>
+                <span lang="ar" class="lang-ar">الملخص المهني</span>
+                <span lang="en" class="lang-en">Professional Summary</span>
+            </h2>
+            <div class="section-content">
+                <p>
+                    <span lang="ar" class="lang-ar">مهندس معماري وتخطيط بخبرة عملية تزيد عن 10 سنوات في التصميم المعماري، الإشراف، وإدارة المشاريع السكنية، التجارية، الثقافية، والصناعية في اليمن والمملكة العربية السعودية. متمكن من استخدام أحدث البرامج الهندسية مثل Revit، AutoCAD، 3Ds Max، وبرامج إدارة المشاريع كـ Primavera و MS Project. حاصل على دبلوم إدارة المشاريع الاحترافية (BMP) وعضو بالهيئة السعودية للمهندسين. أسعى لتوظيف خبراتي الواسعة في قيادة وتنفيذ مشاريع معمارية مبتكرة ذات جودة عالية، والمساهمة في تحقيق رؤى طموحة.</span>
+                    <span lang="en" class="lang-en">Architect and Planner with over 10 years of practical experience in architectural design, supervision, and project management for residential, commercial, cultural, and industrial projects in Yemen and Saudi Arabia. Proficient in using the latest engineering software such as Revit, AutoCAD, 3Ds Max, and project management tools like Primavera and MS Project. Holds a Professional Project Management Diploma (BMP) and is a member of the Saudi Council of Engineers. Seeking to leverage extensive expertise in leading and executing innovative, high-quality architectural projects and contributing to ambitious visions.</span>
+                </p>
+            </div>
+        </section>
+
+        <section id="experience" class="section">
+            <h2>
+                <span class="icon">💼</span>
+                <span lang="ar" class="lang-ar">الخبرات المهنية</span>
+                <span lang="en" class="lang-en">Professional Experience</span>
+            </h2>
+            <div class="section-content">
+                <div class="job">
+                    <p class="job-title">
+                        <span lang="ar" class="lang-ar">مهندس معماري أول ومدير مشاريع</span>
+                        <span lang="en" class="lang-en">Senior Architect and Project Manager</span>
+                    </p>
+                    <p class="company-date">
+                        <span lang="ar" class="lang-ar">مؤسسة مساكن الجزيرة للمقاولات – القصيم، المملكة العربية السعودية (2018 – حتى الآن)</span>
+                        <span lang="en" class="lang-en">Masaken Aljazeera Contracting Est. – Al-Qassim, Saudi Arabia (2018 – Present)</span>
+                    </p>
+                    <ul>
+                        <li>
+                            <span lang="ar" class="lang-ar">إنشاء ومتابعة الجداول الزمنية لمشاريع المؤسسة (2020-2024).</span>
+                            <span lang="en" class="lang-en">Creating and monitoring project timelines for the organization (2020-2024).</span>
+                        </li>
+                        <li>
+                            <span lang="ar" class="lang-ar">إنشاء ومتابعة خطط العمل والجودة والمخاطر للمشاريع (2020-2024).</span>
+                            <span lang="en" class="lang-en">Developing and monitoring work plans, quality, and risk management for projects (2020-2024).</span>
+                        </li>
+                        <li>
+                            <span lang="ar" class="lang-ar">مهندس معماري ومصمم داخلي وخارجي، وحساب الكميات وتسعير المناقصات (2018-2023).</span>
+                            <span lang="en" class="lang-en">Architect, interior/exterior designer, quantity surveyor, and tender pricing (2018-2023).</span>
+                        </li>
+                        <li>
+                            <span lang="ar" class="lang-ar">أعمال معمارية متفرقة للمؤسسة (2018-الآن).</span>
+                            <span lang="en" class="lang-en">Various architectural works for the institution (2018-Present).</span>
+                        </li>
+                    </ul>
+                    <p>
+                        <strong>
+                            <span lang="ar" class="lang-ar">أبرز المشاريع المنجزة مع المؤسسة:</span>
+                            <span lang="en" class="lang-en">Key Accomplished Projects with the Institution:</span>
+                        </strong>
+                    </p>
+                    <ul class="projects-list-regular">
+                        <li>
+                            <span lang="ar" class="lang-ar">مهندس معماري وحاسب كميات لمشروع مكتب إداري وزارة الصحة (2024).</span>
+                            <span lang="en" class="lang-en">Architect and Quantity Surveyor for Ministry of Health administrative office project (2024).</span>
+                        </li>
+                        <li>
+                            <span lang="ar" class="lang-ar">مهندس معماري وحاسب كميات لمشروع مبنى جمعية عزم (2024).</span>
+                            <span lang="en" class="lang-en">Architect and Quantity Surveyor for Azm Association building project (2024).</span>
+                        </li>
+                        <li>
+                            <span lang="ar" class="lang-ar">حساب كميات مشاريع الطرق والإشارات المرورية – بريدة (2024).</span>
+                            <span lang="en" class="lang-en">Quantity surveying for road and traffic signal projects – Buraydah (2024).</span>
+                        </li>
+                        <li>
+                            <span lang="ar" class="lang-ar">مدير مشروع إعادة تأهيل مدخل بريدة الشرقي باتجاه الرياض (2023).</span>
+                            <span lang="en" class="lang-en">Project Manager for rehabilitation of Buraydah's eastern entrance towards Riyadh (2023).</span>
+                        </li>
+                        <li>
+                            <span lang="ar" class="lang-ar">مدير مشروع استكمال سكن الطلاب بكليات سليمان الراجحي – البكيرية (2023).</span>
+                            <span lang="en" class="lang-en">Project Manager for completion of student housing at Sulaiman Al Rajhi Colleges – Al Bukayriyah (2023).</span>
+                        </li>
+                         <li>
+                            <span lang="ar" class="lang-ar">مدير مشروع ترميم الابتدائية 193 حي القدس - الرياض.</span>
+                            <span lang="en" class="lang-en">Project Manager for restoration of Elementary School 193, Al-Quds District - Riyadh.</span>
+                        </li>
+                        <li>
+                            <span lang="ar" class="lang-ar">مصمم داخلي لمشروع صيانة وترميم مركز الملك خالد الحضاري – بريدة (2023).</span>
+                            <span lang="en" class="lang-en">Interior Designer for King Khalid Cultural Center maintenance and restoration project – Buraydah (2023).</span>
+                        </li>
+                        <li>
+                            <span lang="ar" class="lang-ar">نائب مدير مشروع فلل صحار (14 فيلا) – الراجحي – بريدة (2022).</span>
+                            <span lang="en" class="lang-en">Deputy Project Manager for Sohar Villas (14 villas) – Al-Rajhi – Buraydah (2022).</span>
+                        </li>
+                        <li>
+                            <span lang="ar" class="lang-ar">نائب مدير مشروع شقق البساتين الراجحي (153 شقة) – بريدة (2021).</span>
+                            <span lang="en" class="lang-en">Deputy Project Manager for Al Basateen Al Rajhi Apartments (153 units) – Buraydah (2021).</span>
+                        </li>
+                         <li>
+                            <span lang="ar" class="lang-ar">مدير مشروع الصيانة الطارئة لمبنى التعليم العالمي – الرياض (2021).</span>
+                            <span lang="en" class="lang-en">Project Manager for emergency maintenance of the Global Education Building – Riyadh (2021).</span>
+                        </li>
+                        <li>
+                            <span lang="ar" class="lang-ar">مدير مشروع استكمال ابتدائية تحفيظ القرآن الثانية – الفويلق – القصيم (2020).</span>
+                            <span lang="en" class="lang-en">Project Manager for completion of the Second Quran Memorization Elementary School – Al Fuwayliq – Al-Qassim (2020).</span>
+                        </li>
+                        <li>
+                            <span lang="ar" class="lang-ar">مهندس معماري وحاسب كميات مشروع انشاء مبنى ضيافة الأمانة (2019).</span>
+                            <span lang="en" class="lang-en">Architect and Quantity Surveyor for Amanah Guesthouse construction project (2019).</span>
+                        </li>
+                        <li>
+                            <span lang="ar" class="lang-ar">إعادة تصميم مساقط وواجهات وموقع عام مبنى ضيافة أمانة القصيم (2019).</span>
+                            <span lang="en" class="lang-en">Redesign of plans, facades, and site layout for Al-Qassim Amanah Guesthouse (2019).</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="job">
+                    <p class="job-title">
+                        <span lang="ar" class="lang-ar">مدير المكتب الهندسي</span>
+                        <span lang="en" class="lang-en">Head of Engineering Office</span>
+                    </p>
+                    <p class="company-date">
+                        <span lang="ar" class="lang-ar">شركة دليل الواحات – الحديدة، اليمن (أبريل 2016 – أبريل 2018)</span>
+                        <span lang="en" class="lang-en">Daleel AlWahat Co. – Hodeidah, Yemen (April 2016 – April 2018)</span>
+                    </p>
+                    <ul>
+                        <li>
+                            <span lang="ar" class="lang-ar">إدارة جميع التصاميم المعمارية والفريق الهندسي (تصميم، تنفيذ، إشراف).</span>
+                            <span lang="en" class="lang-en">Managed all architectural designs and the engineering team (design, execution, supervision).</span>
+                        </li>
+                        <li>
+                            <span lang="ar" class="lang-ar">تصميم وإشراف القرية السياحية - مشروع القرى السكنية السياحية (2016).</span>
+                            <span lang="en" class="lang-en">Design and supervision of the Tourist Village - Residential Tourist Villages project (2016).</span>
+                        </li>
+                        <li>
+                            <span lang="ar" class="lang-ar">تصميم وإشراف الشاليهات الخاصة - مشروع القرى السكنية السياحية (2017).</span>
+                            <span lang="en" class="lang-en">Design and supervision of Private Chalets - Residential Tourist Villages project (2017).</span>
+                        </li>
+                         <li>
+                            <span lang="ar" class="lang-ar">تصميم مواقف قاطرات الهيئة العامة للنقل – الحديدة (2017).</span>
+                            <span lang="en" class="lang-en">Design of truck parking for the General Transport Authority – Hodeidah (2017).</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="job">
+                    <p class="job-title">
+                        <span lang="ar" class="lang-ar">مدير المشاريع الهندسية</span>
+                        <span lang="en" class="lang-en">Manager of Engineering Projects</span>
+                    </p>
+                    <p class="company-date">
+                        <span lang="ar" class="lang-ar">مؤسسة خير أمة التنموية الخيرية – اليمن (2014 – 2016)</span>
+                        <span lang="en" class="lang-en">Khayr Ummah Developmental Charity Foundation – Yemen (2014 – 2016)</span>
+                    </p>
+                    <ul>
+                        <li>
+                            <span lang="ar" class="lang-ar">إدارة وتنسيق المشاريع الهندسية التابعة للمؤسسة.</span>
+                            <span lang="en" class="lang-en">Managed and coordinated engineering projects for the foundation.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="job">
+                    <p class="job-title">
+                        <span lang="ar" class="lang-ar">مدير وحدة التصاميم المعمارية ومدرب برامج معمارية</span>
+                        <span lang="en" class="lang-en">Head of Architectural Design Unit & Architectural Software Trainer</span>
+                    </p>
+                    <p class="company-date">
+                        <span lang="ar" class="lang-ar">استاتيكا للاستشارات الهندسية – صنعاء، اليمن (يونيو 2013 – أبريل 2016)</span>
+                        <span lang="en" class="lang-en">Statica Engineering Consultants – Sana'a, Yemen (June 2013 – April 2016)</span>
+                    </p>
+                    <ul>
+                        <li>
+                            <span lang="ar" class="lang-ar">إدارة وتصميم المشاريع المعمارية بالمكتب.</span>
+                            <span lang="en" class="lang-en">Managed and designed architectural projects at the office.</span>
+                        </li>
+                        <li>
+                            <span lang="ar" class="lang-ar">تدريب على معظم البرامج المعمارية لعدة معاهد تدريبية.</span>
+                            <span lang="en" class="lang-en">Trained on most architectural software for several training institutes.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="job">
+                    <p class="job-title">
+                        <span lang="ar" class="lang-ar">معيد، قسم الحاسوب</span>
+                        <span lang="en" class="lang-en">Teaching Assistant, Computer Department</span>
+                    </p>
+                    <p class="company-date">
+                        <span lang="ar" class="lang-ar">جامعة العلوم والتكنولوجيا، كلية الهندسة – صنعاء، اليمن (2014 – 2015)</span>
+                        <span lang="en" class="lang-en">University of Science and Technology, Faculty of Engineering – Sana'a, Yemen (2014 – 2015)</span>
+                    </p>
+                    <ul>
+                        <li>
+                            <span lang="ar" class="lang-ar">تدريس مادة الحاسوب لطلاب كلية الهندسة.</span>
+                            <span lang="en" class="lang-en">Taught computer courses to engineering students.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="key-projects" class="section">
+            <h2>
+                <span class="icon">🌟</span>
+                <span lang="ar" class="lang-ar">محفظة مشاريع بارزة (مستقلة ومتنوعة)</span>
+                <span lang="en" class="lang-en">Key Projects Portfolio (Freelance & Various)</span>
+            </h2>
+            <div class="section-content interactive-card-list">
+                <div class="interactive-card">
+                    <p class="job-title"><span class="list-item-icon">🏠</span><span lang="ar" class="lang-ar">تصميم والإشراف على مبانٍ سكنية</span><span lang="en" class="lang-en">Design and Supervision of Residential Buildings</span></p>
+                    <p class="company-date"><span lang="ar" class="lang-ar">أكثر من 120 مبنى في اليمن والسعودية (2009-2021)</span><span lang="en" class="lang-en">Over 120 buildings in Yemen and Saudi Arabia (2009-2021)</span></p>
+                </div>
+                <div class="interactive-card">
+                    <p class="job-title"><span class="list-item-icon">🕌</span><span lang="ar" class="lang-ar">تصميم معماري لمسجد ومول تجاري</span><span lang="en" class="lang-en">Architectural Design of a Mosque and Commercial Mall</span></p>
+                    <p class="company-date"><span lang="ar" class="lang-ar">بريدة (2019)</span><span lang="en" class="lang-en">Buraydah (2019)</span></p>
+                </div>
+                <div class="interactive-card">
+                    <p class="job-title"><span class="list-item-icon">🎭</span><span lang="ar" class="lang-ar">تصميم داخلي لثلاثة مسارح</span><span lang="en" class="lang-en">Interior Design for Three Theaters</span></p>
+                    <p class="company-date"><span lang="ar" class="lang-ar">الدمام، حفر الباطن، جيزان (2018)</span><span lang="en" class="lang-en">Dammam, Hafar Al-Batin, Jizan (2018)</span></p>
+                </div>
+                <div class="interactive-card">
+                    <p class="job-title"><span class="list-item-icon">🏙️</span><span lang="ar" class="lang-ar">تخطيط وتصميم وإسقاط مدينة المدائن السكنية</span><span lang="en" class="lang-en">Planning, Design, and Layout of Al-Mada'in Residential City</span></p>
+                    <p class="company-date"><span lang="ar" class="lang-ar">مأرب (2018)</span><span lang="en" class="lang-en">Ma'rib (2018)</span></p>
+                </div>
+                <div class="interactive-card">
+                    <p class="job-title"><span class="list-item-icon">🏞️</span><span lang="ar" class="lang-ar">تصميم وإشراف منتزه إقليم سبأ السياحي</span><span lang="en" class="lang-en">Design and Supervision of Saba Region Tourist Park</span></p>
+                    <p class="company-date"><span lang="ar" class="lang-ar">مأرب (2018)</span><span lang="en" class="lang-en">Ma'rib (2018)</span></p>
+                </div>
+                 <div class="interactive-card">
+                    <p class="job-title"><span class="list-item-icon">🍽️</span><span lang="ar" class="lang-ar">تصميم مطاعم ملوك سبأ السياحي</span><span lang="en" class="lang-en">Design of Kings of Saba Tourist Restaurants</span></p>
+                    <p class="company-date"><span lang="ar" class="lang-ar">مأرب (2017)</span><span lang="en" class="lang-en">Ma'rib (2017)</span></p>
+                </div>
+                <div class="interactive-card">
+                    <p class="job-title"><span class="list-item-icon">🛒</span><span lang="ar" class="lang-ar">تصميم سوق تجاري (308 محل تجاري)</span><span lang="en" class="lang-en">Design of a Commercial Market (308 shops)</span></p>
+                    <p class="company-date"><span lang="ar" class="lang-ar">صنعاء (2016)</span><span lang="en" class="lang-en">Sana'a (2016)</span></p>
+                </div>
+                <div class="interactive-card">
+                    <p class="job-title"><span class="list-item-icon">🏥</span><span lang="ar" class="lang-ar">تصميم مستشفى الفجر الجديد</span><span lang="en" class="lang-en">Design of Al-Fajr Al-Jadeed Hospital</span></p>
+                    <p class="company-date"><span lang="ar" class="lang-ar">الحديدة (2014)</span><span lang="en" class="lang-en">Hodeidah (2014)</span></p>
+                </div>
+                <div class="interactive-card">
+                    <p class="job-title"><span class="list-item-icon">⚓</span><span lang="ar" class="lang-ar">مشارك في تصميم تطوير الكلية البحرية</span><span lang="en" class="lang-en">Participation in Design Development of Naval College</span></p>
+                    <p class="company-date"><span lang="ar" class="lang-ar">الحديدة (2014)</span><span lang="en" class="lang-en">Hodeidah (2014)</span></p>
+                </div>
+                <div class="interactive-card">
+                    <p class="job-title"><span class="list-item-icon">🎉</span><span lang="ar" class="lang-ar">تصميم صالة أفراح البعداني</span><span lang="en" class="lang-en">Design of Al-Ba'adani Wedding Hall</span></p>
+                    <p class="company-date"><span lang="ar" class="lang-ar">صنعاء (2014)</span><span lang="en" class="lang-en">Sana'a (2014)</span></p>
+                </div>
+                <div class="interactive-card">
+                    <p class="job-title"><span class="list-item-icon">🏨</span><span lang="ar" class="lang-ar">تصميم وإشراف فندق المقدمي</span><span lang="en" class="lang-en">Design and Supervision of Al-Moqdami Hotel</span></p>
+                    <p class="company-date"><span lang="ar" class="lang-ar">عمران (2013)</span><span lang="en" class="lang-en">Amran (2013)</span></p>
+                </div>
+                 <div class="interactive-card">
+                    <p class="job-title"><span class="list-item-icon">🧱</span><span lang="ar" class="lang-ar">تصميم ودراسة الكميات لمجمع الفرقان</span><span lang="en" class="lang-en">Design and Quantity Surveying for Al-Furqan Complex</span></p>
+                    <p class="company-date"><span lang="ar" class="lang-ar">عمران (2012)</span><span lang="en" class="lang-en">Amran (2012)</span></p>
+                </div>
+                 <div class="interactive-card">
+                    <p class="job-title"><span class="list-item-icon">💧</span><span lang="ar" class="lang-ar">تصميم ودراسة كميات مغسلة الموتى لعدد من المساجد</span><span lang="en" class="lang-en">Design and Quantity Surveying of Ghusl Facilities for Mosques</span></p>
+                    <p class="company-date"><span lang="ar" class="lang-ar">عمران (2012)</span><span lang="en" class="lang-en">Amran (2012)</span></p>
+                </div>
+                <div class="interactive-card">
+                    <p class="job-title"><span class="list-item-icon">🕊️</span><span lang="ar" class="lang-ar">عمل رؤية تصميمية لمبنى دار الأيتام</span><span lang="en" class="lang-en">Conceptual Design for Orphanage Building</span></p>
+                    <p class="company-date"><span lang="ar" class="lang-ar">عمران (2010)</span><span lang="en" class="lang-en">Amran (2010)</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="section">
+            <h2>
+                <span class="icon">🎓</span>
+                <span lang="ar" class="lang-ar">المؤهلات العلمية</span>
+                <span lang="en" class="lang-en">Education</span>
+            </h2>
+            <div class="section-content interactive-card-list">
+                <div class="interactive-card">
+                    <p class="job-title">
+                        <span class="list-item-icon">📚</span>
+                        <span lang="ar" class="lang-ar">تمهيدي ماجستير</span>
+                        <span lang="en" class="lang-en">Master's Preliminary Year</span>
+                    </p>
+                    <p class="company-date">
+                        <span lang="ar" class="lang-ar">جامعة العلوم والتكنولوجيا، اليمن (2015)</span>
+                        <span lang="en" class="lang-en">University of Science and Technology, Yemen (2015)</span>
+                    </p>
+                </div>
+                <div class="interactive-card">
+                    <p class="job-title">
+                        <span class="list-item-icon">📜</span>
+                        <span lang="ar" class="lang-ar">بكالوريوس هندسة معمارية</span>
+                        <span lang="en" class="lang-en">Bachelor of Architecture</span>
+                    </p>
+                    <p class="company-date">
+                        <span lang="ar" class="lang-ar">كلية الهندسة، جامعة صنعاء، اليمن (2013)</span>
+                        <span lang="en" class="lang-en">Faculty of Engineering, Sana'a University, Yemen (2013)</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="courses" class="section">
+            <h2>
+                <span class="icon">🔖</span>
+                <span lang="ar" class="lang-ar">الدورات التدريبية والشهادات</span>
+                <span lang="en" class="lang-en">Training Courses & Certifications</span>
+            </h2>
+            <div class="section-content">
+                <ul class="interactive-card-list">
+                    <li class="interactive-card">
+                        <span class="list-item-icon">🏅</span><strong><span lang="ar" class="lang-ar">دبلوم إدارة المشاريع الاحترافية (BMP)</span><span lang="en" class="lang-en">Professional Project Management Diploma (BMP)</span></strong> (2024)
+                    </li>
+                    <li class="interactive-card">
+                        <span class="list-item-icon">🗣️</span><span lang="ar" class="lang-ar">دورات في اللغة الإنجليزية</span><span lang="en" class="lang-en">English Language Courses</span> (2013-2014)
+                    </li>
+                    <li class="interactive-card">
+                        <span class="list-item-icon">💡</span><span lang="ar" class="lang-ar">دورات متنوعة في التنمية البشرية</span><span lang="en" class="lang-en">Various Human Development Courses</span> (2010-2013)
+                    </li>
+                    <li class="interactive-card">
+                        <span class="list-item-icon">📐</span><span lang="ar" class="lang-ar">دورات في البرامج الهندسية</span><span lang="en" class="lang-en">Courses in Engineering Software</span> (2010-2013)
+                    </li>
+                    <li class="interactive-card">
+                        <span class="list-item-icon">📸</span><span lang="ar" class="lang-ar">دورة في فن التصوير</span><span lang="en" class="lang-en">Course in Photography Art</span> (2013)
+                    </li>
+                    <li class="interactive-card">
+                        <span class="list-item-icon">💻</span><span lang="ar" class="lang-ar">دبلوم كامبردج لتقنية المعلومات</span><span lang="en" class="lang-en">Cambridge Diploma in IT Skills</span> (2014)
+                    </li>
+                    <li class="interactive-card">
+                        <span class="list-item-icon">🖱️</span><span lang="ar" class="lang-ar">دبلوم الرخصة الدولية لقيادة الحاسوب</span><span lang="en" class="lang-en">International Computer Driving License (ICDL)</span> (2009)
+                    </li>
+                     <li class="interactive-card">
+                        <span class="list-item-icon">👨‍🏫</span><span lang="ar" class="lang-ar">مدرب برامج معمارية للعديد من المعاهد التدريبية الهندسية – صنعاء</span><span lang="en" class="lang-en">Architectural Software Trainer for several engineering training institutes – Sana'a</span> (2014)
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <h2>
+                <span class="icon">🛠️</span>
+                <span lang="ar" class="lang-ar">المهارات</span>
+                <span lang="en" class="lang-en">Skills</span>
+            </h2>
+            <div class="section-content">
+                <div class="skills-category">
+                    <h4> 
+                        <span class="list-item-icon">🌍</span>
+                        <span lang="ar" class="lang-ar">اللغات</span><span lang="en" class="lang-en">Languages</span>
+                    </h4>
+                    <ul class="interactive-card-list">
+                        <li class="interactive-card"><span class="list-item-icon">🇸🇦</span><span lang="ar" class="lang-ar">العربية: اللغة الأم</span><span lang="en" class="lang-en">Arabic: Mother Tongue</span></li>
+                        <li class="interactive-card"><span class="list-item-icon">🇬🇧</span><span lang="ar" class="lang-ar">الإنجليزية: جيد جداً</span><span lang="en" class="lang-en">English: Very Good</span></li>
+                    </ul>
+                </div>
+
+                <div class="skills-category">
+                    <h4>
+                        <span class="list-item-icon">💻</span>
+                        <span lang="ar" class="lang-ar">المهارات الحاسوبية</span><span lang="en" class="lang-en">Software Proficiency</span>
+                    </h4>
+                    <div class="interactive-card-list"> 
+                        <div class="interactive-card">
+                            <p class="skills-category-title"><span lang="ar" class="lang-ar">التصميم والرسم الهندسي (CAD/BIM)</span><span lang="en" class="lang-en">CAD/BIM Design & Drafting</span></p>
+                            <ul class="skills-list">
+                                <li><span class="software-logo-placeholder">💠</span><span class="list-item-icon">✔️</span>AutoCAD (<span lang="ar" class="lang-ar">احتراف</span><span lang="en" class="lang-en">Professional</span>)</li>
+                                <li><span class="software-logo-placeholder">💠</span><span class="list-item-icon">✔️</span>AutoCAD Architecture (<span lang="ar" class="lang-ar">احتراف</span><span lang="en" class="lang-en">Professional</span>)</li>
+                                <li><span class="software-logo-placeholder">💠</span><span class="list-item-icon">✔️</span>Revit BIM (<span lang="ar" class="lang-ar">احتراف</span><span lang="en" class="lang-en">Professional</span>)</li>
+                                <li><span class="software-logo-placeholder">💠</span><span class="list-item-icon">🔸</span>ArchiCAD (<span lang="ar" class="lang-ar">متوسط</span><span lang="en" class="lang-en">Intermediate</span>)</li>
+                            </ul>
+                        </div>
+                        <div class="interactive-card">
+                            <p class="skills-category-title"><span lang="ar" class="lang-ar">النمذجة ثلاثية الأبعاد والإخراج</span><span lang="en" class="lang-en">3D Modeling & Rendering</span></p>
+                            <ul class="skills-list">
+                                <li><span class="software-logo-placeholder">💠</span><span class="list-item-icon">✔️</span>3Ds Max (<span lang="ar" class="lang-ar">احتراف</span><span lang="en" class="lang-en">Professional</span>)</li>
+                                <li><span class="software-logo-placeholder">💠</span><span class="list-item-icon">✔️</span>V-Ray (<span lang="ar" class="lang-ar">احتراف</span><span lang="en" class="lang-en">Professional</span>)</li>
+                                <li><span class="software-logo-placeholder">💠</span><span class="list-item-icon">✔️</span>SketchUp (<span lang="ar" class="lang-ar">احتراف</span><span lang="en" class="lang-en">Professional</span>)</li>
+                                <li><span class="software-logo-placeholder">💠</span><span class="list-item-icon">✔️</span>Lumion (<span lang="ar" class="lang-ar">احتراف</span><span lang="en" class="lang-en">Professional</span>)</li>
+                                <li><span class="software-logo-placeholder">💠</span><span class="list-item-icon">✔️</span>Twinmotion (<span lang="ar" class="lang-ar">احتراف</span><span lang="en" class="lang-en">Professional</span>)</li>
+                                <li><span class="software-logo-placeholder">💠</span><span class="list-item-icon">✔️</span>Enscape (<span lang="ar" class="lang-ar">احتراف</span><span lang="en" class="lang-en">Professional</span>)</li>
+                                <li><span class="software-logo-placeholder">💠</span><span class="list-item-icon">✔️</span>Artlantis (<span lang="ar" class="lang-ar">احتراف</span><span lang="en" class="lang-en">Professional</span>)</li>
+                            </ul>
+                        </div>
+                        <div class="interactive-card">
+                             <p class="skills-category-title"><span lang="ar" class="lang-ar">الجرافيكس وتحرير الصور والفيديو</span><span lang="en" class="lang-en">Graphics, Image & Video Editing</span></p>
+                            <ul class="skills-list">
+                                <li><span class="software-logo-placeholder">💠</span><span class="list-item-icon">✔️</span>Photoshop (<span lang="ar" class="lang-ar">احتراف</span><span lang="en" class="lang-en">Professional</span>)</li>
+                                <li><span class="software-logo-placeholder">💠</span><span class="list-item-icon">🔸</span>After Effects (<span lang="ar" class="lang-ar">متوسط</span><span lang="en" class="lang-en">Intermediate</span>)</li>
+                            </ul>
+                        </div>
+                        <div class="interactive-card">
+                            <p class="skills-category-title"><span lang="ar" class="lang-ar">إدارة المشاريع والمكتبية</span><span lang="en" class="lang-en">Project Management & Office Suite</span></p>
+                             <ul class="skills-list">
+                                <li><span class="software-logo-placeholder">💠</span><span class="list-item-icon">✔️</span>MS Project (<span lang="ar" class="lang-ar">احتراف</span><span lang="en" class="lang-en">Professional</span>)</li>
+                                <li><span class="software-logo-placeholder">💠</span><span class="list-item-icon">✔️</span>Primavera (<span lang="ar" class="lang-ar">احتراف</span><span lang="en" class="lang-en">Professional</span>)</li>
+                                <li><span class="software-logo-placeholder">💠</span><span class="list-item-icon">✔️</span>MS Office Suite (Word, Excel, PowerPoint) (<span lang="ar" class="lang-ar">احتراف</span><span lang="en" class="lang-en">Professional</span>)</li>
+                            </ul>
+                        </div>
+                         <div class="interactive-card">
+                             <p class="skills-category-title"><span lang="ar" class="lang-ar">برامج هندسية أخرى</span><span lang="en" class="lang-en">Other Engineering Software</span></p>
+                             <ul class="skills-list">
+                                <li><span class="software-logo-placeholder">💠</span><span class="list-item-icon">🔸</span>Civil3D (<span lang="ar" class="lang-ar">متوسط</span><span lang="en" class="lang-en">Intermediate</span>)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h4>
+                        <span class="list-item-icon">⚙️</span>
+                        <span lang="ar" class="lang-ar">مهارات أخرى</span><span lang="en" class="lang-en">Other Skills</span>
+                    </h4>
+                    <ul class="interactive-card-list">
+                        <li class="interactive-card"><span class="list-item-icon">🔧</span><span lang="ar" class="lang-ar">صيانة وبرمجة أجهزة الكمبيوتر وإصلاح المشاكل التقنية</span><span lang="en" class="lang-en">Computer hardware/software maintenance and troubleshooting</span></li>
+                        <li class="interactive-card"><span class="list-item-icon">🚀</span><span lang="ar" class="lang-ar">قدرة عالية على تعلم البرامج الحديثة ومتابعة كل جديد في مجال الهندسة</span><span lang="en" class="lang-en">Fast learner for new software and keen on following engineering advancements</span></li>
+                        <li class="interactive-card"><span class="list-item-icon">🚗</span><span lang="ar" class="lang-ar">حاصل على رخصة قيادة (السعودية واليمن)</span><span lang="en" class="lang-en">Driving licenses (Saudi Arabia & Yemen)</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="memberships" class="section">
+            <h2>
+                <span class="icon">🤝</span>
+                <span lang="ar" class="lang-ar">العضويات المهنية</span>
+                <span lang="en" class="lang-en">Professional Memberships</span>
+            </h2>
+            <div class="section-content">
+                <ul class="interactive-card-list">
+                    <li class="interactive-card">
+                        <span class="list-item-icon">🇸🇦</span>
+                        <span lang="ar" class="lang-ar">عضو الهيئة السعودية للمهندسين (رقم العضوية: 422384)</span>
+                        <span lang="en" class="lang-en">Member of Saudi Council of Engineers (Membership No: 422384)</span>
+                    </li>
+                    <li class="interactive-card">
+                        <span class="list-item-icon">🇾🇪</span>
+                        <span lang="ar" class="lang-ar">عضو في نقابة المهندسين اليمنيين</span>
+                        <span lang="en" class="lang-en">Member of Yemeni Engineers Syndicate</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="awards" class="section">
+            <h2>
+                <span class="icon">🏆</span>
+                <span lang="ar" class="lang-ar">شهادات التكريم والتقدير</span>
+                <span lang="en" class="lang-en">Honors & Awards</span>
+            </h2>
+            <div class="section-content">
+                 <ul class="interactive-card-list">
+                    <li class="interactive-card">
+                        <span class="list-item-icon">🌟</span>
+                        <span lang="ar" class="lang-ar">مؤسسة خير أمة التنموية الخيرية</span>
+                        <span lang="en" class="lang-en">Khayr Ummah Developmental Charity Foundation</span>
+                    </li>
+                    <li class="interactive-card">
+                        <span class="list-item-icon">🌟</span>
+                        <span lang="ar" class="lang-ar">الاتحاد العام لطلاب اليمن</span>
+                        <span lang="en" class="lang-en">General Union of Yemeni Students</span>
+                    </li>
+                    <li class="interactive-card">
+                        <span class="list-item-icon">🌟</span>
+                        <span lang="ar" class="lang-ar">كلية الهندسة</span>
+                        <span lang="en" class="lang-en">Faculty of Engineering</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            <p>
+                &copy; <span id="currentYear"></span> 
+                <span lang="ar" class="lang-ar">عامر عبده محمد عامر - جميع الحقوق محفوظة</span>
+                <span lang="en" class="lang-en">Amer Abdo Mohammed Amer - All rights reserved</span>
+            </p>
+            <p class="whatsapp-contact">
+                <span class="icon">📱</span>
+                <span lang="ar" class="lang-ar">للتواصل عبر واتساب: </span>
+                <span lang="en" class="lang-en">Contact via WhatsApp: </span>
+                <a href="https://wa.me/966593978687" target="_blank">+966593978687</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const langToggleButton = document.getElementById('langToggleButton');
+            const floatingThemeToggleButton = document.getElementById('floatingThemeToggleButton');
+            const printButton = document.getElementById('printButton');
+            const htmlTag = document.documentElement;
+            const bodyTag = document.body;
+
+            // --- Language Toggle ---
+            function getDefaultDisplay(element) {
+                const tagName = element.tagName.toLowerCase();
+                if (['span', 'a', 'strong', 'em', 'i', 'b', 'label', 'small', 'sub', 'sup', 'q', 'cite', 'code', 'time', 'abbr', 'acronym', 'dfn', 'kbd', 'samp', 'var'].includes(tagName)) {
+                    let isSimpleInline = true;
+                    if(element.children.length > 0){
+                        for(let child of element.children){
+                            if(child.nodeType !== Node.TEXT_NODE && !['span', 'a', 'strong', 'em', 'i', 'b', 'small', 'sub', 'sup', 'q', 'cite', 'code', 'time', 'abbr', 'acronym', 'dfn', 'kbd', 'samp', 'var'].includes(child.tagName.toLowerCase())){
+                                isSimpleInline = false;
+                                break;
+                            }
+                        }
+                    }
+                    if(isSimpleInline) return 'inline';
+                }
+                if (['p', 'div', 'ul', 'li', 'h1', 'h2', 'h3', 'h4', 'header', 'section', 'footer', 'article', 'aside', 'nav', 'main', 'button', 'form', 'fieldset', 'figcaption', 'figure', 'blockquote', 'dl', 'dt', 'dd', 'pre', 'address'].includes(tagName)) {
+                    return 'block';
+                }
+                if (['table', 'tr', 'td', 'th', 'thead', 'tbody', 'tfoot'].includes(tagName)){
+                    return ''; 
+                }
+                return 'block'; 
+            }
+
+            function updateButtonTextBasedOnLanguage(lang) {
+                const isDarkMode = bodyTag.classList.contains('dark-mode');
+                if (lang === 'ar') {
+                    if (langToggleButton) langToggleButton.textContent = 'Switch to English';
+                    if (floatingThemeToggleButton) floatingThemeToggleButton.innerHTML = isDarkMode ? '☀️' : '🌙'; // Emoji for theme
+                    if (printButton) {
+                        printButton.querySelector('.lang-ar').style.display = '';
+                        printButton.querySelector('.lang-en').style.display = 'none';
+                    }
+                } else { // lang === 'en'
+                    if (langToggleButton) langToggleButton.textContent = 'التحويل إلى العربية';
+                    if (floatingThemeToggleButton) floatingThemeToggleButton.innerHTML = isDarkMode ? '☀️' : '🌙'; // Emoji for theme
+                     if (printButton) {
+                        printButton.querySelector('.lang-ar').style.display = 'none';
+                        printButton.querySelector('.lang-en').style.display = '';
+                    }
+                }
+            }
+            
+            function setLanguageDisplay(lang) {
+                const arElements = document.querySelectorAll('.lang-ar');
+                const enElements = document.querySelectorAll('.lang-en');
+
+                arElements.forEach(el => el.style.display = (lang === 'ar' ? (el.dataset.displayType || getDefaultDisplay(el)) : 'none'));
+                enElements.forEach(el => el.style.display = (lang === 'en' ? (el.dataset.displayType || getDefaultDisplay(el)) : 'none'));
+                
+                htmlTag.lang = lang;
+                htmlTag.dir = lang === 'ar' ? 'rtl' : 'ltr';
+                updateButtonTextBasedOnLanguage(lang);
+            }
+
+            setLanguageDisplay('ar'); 
+
+            if (langToggleButton) {
+                langToggleButton.addEventListener('click', function () {
+                    const newLang = htmlTag.lang === 'ar' ? 'en' : 'ar';
+                    setLanguageDisplay(newLang);
+                });
+            }
+
+            // --- Theme Toggle ---
+            if (floatingThemeToggleButton) {
+                floatingThemeToggleButton.addEventListener('click', function() {
+                    bodyTag.classList.toggle('dark-mode');
+                    const isDarkMode = bodyTag.classList.contains('dark-mode');
+                    this.innerHTML = isDarkMode ? '☀️' : '🌙'; // Update icon
+                    // No need to update text here as it's an icon now
+                });
+                 // Set initial icon based on preferred or default theme
+                const isInitiallyDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (isInitiallyDarkMode && !bodyTag.classList.contains('dark-mode')) { // Apply if not already set by user
+                     bodyTag.classList.add('dark-mode');
+                }
+                floatingThemeToggleButton.innerHTML = bodyTag.classList.contains('dark-mode') ? '☀️' : '🌙';
+            }
+
+
+            // --- Print Button ---
+            if (printButton) {
+                printButton.addEventListener('click', function() {
+                    window.print();
+                });
+            }
+
+            const currentYearElement = document.getElementById('currentYear');
+            if (currentYearElement) {
+                currentYearElement.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>
