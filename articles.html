@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المواضيع والمقالات والشروحات التقنية | م. عامر الحلحلي</title>
+  
+  <meta name="description" content="المقالات والمواضيع التقنية والشروحات المنشورة للمهندس عامر الحلحلي في منتديات الشارقة سوفت، المشاغب، وزيزووم - شروحات صيانة الويندوز عبر CMD، أسرار التفعيل، وتفريغات إسلامية وعلمية.">
+  <meta name="keywords" content="مقالات عامر الحلحلي, شروحات ويندوز, اوامر CMD, الشارقة سوفت, منتديات المشاغب, منتدى زيزووم">
+  <link rel="canonical" href="https://alhlhli.github.io/articles.html">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📰</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- الهيدر الموحد -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-area">
+        <div class="logo-badge">AH</div>
+        <div class="logo-text">
+          <span class="logo-title">م. عامر الحلحلي</span>
+          <span class="logo-subtitle">Amer Al-Hlhli</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link"><i class="fas fa-home"></i> الرئيسية</a>
+        <a href="engineering.html" class="nav-link"><i class="fas fa-building"></i> المشاريع الهندسية</a>
+        <a href="islamic.html" class="nav-link"><i class="fas fa-quran"></i> صفحات إسلامية</a>
+        <a href="lisps.html" class="nav-link"><i class="fas fa-drafting-compass"></i> ليسبات كاد</a>
+        <a href="windows.html" class="nav-link"><i class="fab fa-windows"></i> نسخ الويندوز</a>
+        <a href="programs.html" class="nav-link"><i class="fas fa-laptop-code"></i> البرامج والمشاريع</a>
+        <a href="localization.html" class="nav-link"><i class="fas fa-language"></i> تعريب البرامج</a>
+        <a href="telegram.html" class="nav-link"><i class="fab fa-telegram-plane"></i> قنوات التليجرام</a>
+        <a href="articles.html" class="nav-link active"><i class="fas fa-newspaper"></i> المقالات</a>
+        <a href="youtube.html" class="nav-link"><i class="fab fa-youtube"></i> شروحات اليوتيوب</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="themeToggleBtn" class="btn-icon" title="تبديل المظهر" aria-label="تبديل المظهر">
+          <i class="fas fa-sun"></i>
+        </button>
+        <a href="https://www.youtube.com/@hlhli?sub_confirmation=1" target="_blank" rel="noopener" class="btn-icon" title="قناة اليوتيوب @hlhli" aria-label="يوتيوب">
+          <i class="fab fa-youtube" style="color:#ff0000;"></i>
+        </a>
+        <a href="https://t.me/pro3mer" target="_blank" rel="noopener" class="btn btn-telegram btn-sm">
+          <i class="fab fa-telegram-plane"></i> قناة pro3mer
+        </a>
+        <button id="mobileMenuToggle" class="btn-icon mobile-menu-toggle" aria-label="القائمة">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- الترويسة الرئيسية -->
+  <section class="section-wrapper" style="padding: 2.5rem 0 1.5rem;">
+    <div class="container">
+      <div style="text-align: center; max-width: 850px; margin: 0 auto 2rem;">
+        <span class="hero-tag"><i class="fas fa-pen-nib"></i> مواضيع وشروحات حصرية من منتديات التقنية العربية</span>
+        <h1 style="font-size: 2.4rem; font-weight: 900; margin: 0.5rem 0 1rem; color: var(--text-main);">
+          المواضيع والمقالات والشروحات التقنية
+        </h1>
+        <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8;">
+          أرشيف المقالات والمواضيع والشروحات التقنية والعلمية والدعوية التي قمت بنشرها في منتديات الشارقة سوفت، منتديات المشاغب، ومنتدى زيزووم للأمن والحماية.
+        </p>
+      </div>
+
+      <!-- شريط البحث والفلترة -->
+      <div class="toolbar-wrapper" style="margin-bottom: 2rem;">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="pageSearchInput" class="search-input" placeholder="ابحث في المقالات والمواضيع (AOM, SketchUp, كامتاسيا, كاد, ويندوز, صامت, طابعة)..." autocomplete="off">
+        </div>
+
+        <div class="filter-pills">
+          <button class="filter-btn active" data-filter="all"><i class="fas fa-th-large"></i> كافة المقالات والمواضيع</button>
+          <button class="filter-btn" data-filter="تخصيص,صيانة"><i class="fas fa-sliders-h"></i> تخصيص وصيانة الويندوز</button>
+          <button class="filter-btn" data-filter="أنظمة,ترقية"><i class="fab fa-windows"></i> نسخ الويندوز والترقية</button>
+          <button class="filter-btn" data-filter="تطوير,تفعيل,برمجيات"><i class="fas fa-code"></i> تطوير وتفعيل البرمجيات</button>
+          <button class="filter-btn" data-filter="صامتة,pdf"><i class="fas fa-file-pdf"></i> برمجيات صامتة و PDF</button>
+          <button class="filter-btn" data-filter="كاد,هندسة,sketchup"><i class="fas fa-drafting-compass"></i> حلول كاد وهندسة</button>
+          <button class="filter-btn" data-filter="شبكات,واي فاي"><i class="fas fa-wifi"></i> شروحات الشبكات</button>
+        </div>
+      </div>
+
+      <!-- شبكة عرض المقالات والشروحات -->
+      <div id="articlesFullGrid" class="cards-grid">
+        <!-- يتم الحقن تلقائياً عبر app.js -->
+      </div>
+      <div class="no-results" style="display:none;"><i class="fas fa-search"></i><h3>لم يتم العثور على مقالات تطابق بحثك</h3></div>
+    </div>
+  </section>
+
+  <!-- الفوتر -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-copy">
+          جميع الحقوق محفوظة &copy; 2026 للمهندس <strong>عامر الحلحلي (Amer Al-Hlhli)</strong>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">الرئيسية</a>
+          <a href="engineering.html">المشاريع الهندسية</a>
+          <a href="islamic.html">صفحات إسلامية</a>
+          <a href="lisps.html">ليسبات كاد</a>
+          <a href="windows.html">نسخ الويندوز</a>
+          <a href="programs.html">البرامج والمشاريع</a>
+          <a href="localization.html">تعريب البرامج</a>
+          <a href="telegram.html">قنوات التليجرام</a>
+          <a href="articles.html">المقالات</a>
+          <a href="youtube.html">شروحات اليوتيوب</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal قراءة المقال -->
+  <div id="detailsModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div id="modalTitle" class="modal-title">قراءة المقال</div>
+        <button id="modalCloseBtn" class="modal-close-btn" aria-label="إغلاق"><i class="fas fa-times"></i></button>
+      </div>
+      <div id="modalBody" class="modal-body"></div>
+      <div id="modalFooter" class="modal-footer"></div>
+    </div>
+  </div>
+
+  <button id="backToTopBtn" class="back-to-top" title="العودة لأعلى" aria-label="أعلى"><i class="fas fa-arrow-up"></i></button>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
