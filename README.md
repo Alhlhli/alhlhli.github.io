@@ -30,14 +30,3 @@
 - **حساب التليجرام:** [https://t.me/alhlhli](https://t.me/alhlhli)
 
 ---
-
-## 🚀 طريقة الرفع والتحديث على GitHub Pages:
-من داخل المجلد `d:\AMER\mysite`، نفذ:
-```bash
-git init
-git add .
-git commit -m "تحديث الموقع: صفحات مستقلة وبيانات حقيقية كاملة لم. عامر الحلحلي"
-git branch -M main
-git remote add origin https://github.com/alhlhli/alhlhli.github.io.git
-git push -u origin main --force
-```
