@@ -2496,3 +2496,208 @@ img {
   height: 100%;
   border: none;
 }
+
+/* ===================================================================
+   17. معاينة ليسبات الأوتوكاد بطريقة Lee Mac وأزرار التحميل
+   =================================================================== */
+.lisp-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.lisp-cad-preview-box {
+  height: 185px !important;
+  background: #14181f !important;
+  border: 1px solid #283241 !important;
+  border-radius: var(--radius-md);
+  margin-bottom: 0.85rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5), 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.lisp-cad-preview-box .card-preview-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  background: #14181f;
+  transition: transform var(--transition-normal);
+}
+
+.lisp-cad-preview-box:hover .card-preview-thumb {
+  transform: scale(1.04);
+}
+
+.lisp-cad-preview-box .image-zoom-overlay {
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.4) 60%, transparent);
+  font-family: var(--font-code);
+  font-size: 0.85rem;
+  direction: ltr;
+}
+
+.btn-download-lisp {
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  color: #ffffff !important;
+  font-weight: 700;
+  border: none;
+}
+
+.btn-download-lisp:hover {
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  box-shadow: 0 4px 15px rgba(14, 165, 233, 0.45);
+  transform: translateY(-2px);
+}
+
+.lisp-command-badge {
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.lisp-command-badge:hover {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: var(--accent-cyan);
+  color: #ffffff;
+  transform: scale(1.03);
+}
+
+.guide-step-card {
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.guide-step-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-cyan) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+[data-theme="light"] .lisp-cad-preview-box {
+  background: #14181f !important;
+  border-color: #334155 !important;
+}
+
+[data-theme="light"] .guide-step-card {
+  background: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] .guide-step-card:hover {
+  background: #f1f5f9 !important;
+  border-color: #0284c7 !important;
+}
+
+/* ===================================================================
+   18. قائمة تليجرام المنسدلة لليسبات (طلب شرح، ميزة إضافية، إبلاغ عن مشكلة)
+   =================================================================== */
+.lisp-tg-dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.btn-lisp-tg {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #229ed9;
+  color: #ffffff !important;
+  border: none;
+  font-weight: 700;
+  transition: all var(--transition-fast);
+}
+
+.btn-lisp-tg:hover {
+  background: #1b8ec5;
+  box-shadow: 0 4px 14px rgba(34, 158, 217, 0.45);
+  transform: translateY(-2px);
+}
+
+.lisp-tg-dropdown-menu {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  min-width: 235px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+  padding: 0.5rem;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.lisp-tg-dropdown-wrapper.open .lisp-tg-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.lisp-tg-dropdown-header {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--text-dim);
+  padding: 0.35rem 0.6rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.lisp-tg-dropdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.lisp-tg-dropdown-item:hover {
+  background: rgba(34, 158, 217, 0.15);
+  border-color: #229ed9;
+  color: #38bdf8;
+  transform: translateX(-3px);
+}
+
+.lisp-tg-item-title {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.lisp-tg-ext {
+  font-size: 0.72rem;
+  opacity: 0.6;
+}
+
+[data-theme="light"] .lisp-tg-dropdown-menu {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .lisp-tg-dropdown-item {
+  background: #f8fafc;
+  color: #1e293b;
+}
+
+[data-theme="light"] .lisp-tg-dropdown-item:hover {
+  background: #e0f2fe;
+  color: #0284c7;
+  border-color: #38bdf8;
+}
+
+

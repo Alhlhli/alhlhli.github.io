@@ -71,6 +71,75 @@
         </p>
       </div>
 
+      <!-- صندوق الدليل الشامل لطريقة استخدام الليسبات بشكل عام -->
+      <div class="lisp-guide-card" style="margin-bottom: 2.5rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.75rem; box-shadow: var(--shadow-md);">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; margin-bottom: 1.25rem;">
+          <div>
+            <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--text-main); margin: 0; display: flex; align-items: center; gap: 0.6rem;">
+              <i class="fas fa-book-reader" style="color: var(--accent-cyan);"></i>
+              طريقة استخدام وتحميل ليسبات الأوتوكاد (AutoLISP Guide)
+            </h2>
+            <p style="color: var(--text-muted); font-size: 0.92rem; margin: 0.35rem 0 0;">
+              دليل عملي للمهندسين والمصممين لتشغيل وحفظ ملفات الليسب (.lsp) داخل AutoCAD بكفاءة وسرعة
+            </p>
+          </div>
+          <span class="badge-primary" style="font-size: 0.85rem; padding: 0.35rem 0.85rem; border-radius: var(--radius-full);">
+            <i class="fas fa-magic"></i> 3 طرق سهلة للتشغيل
+          </span>
+        </div>
+
+        <div class="lisp-steps-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+          <!-- الطريقة الأولى -->
+          <div class="guide-step-card" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.1rem; position: relative;">
+            <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem;">
+              <span style="background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.95rem;">1</span>
+              <strong style="color: var(--text-main); font-size: 1rem;">التحميل السريع (أمر APPLOAD)</strong>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.7; margin: 0;">
+              اكتب في سطر أوامر الأوتوكاد <code>APPLOAD</code> أو اختصار <code>AP</code> واضغط <strong>Enter</strong>، ثم حدد ملف الليسب وانقر على <strong>Load</strong> لتشغيله في الجلسة الحالية.
+            </p>
+          </div>
+
+          <!-- الطريقة الثانية -->
+          <div class="guide-step-card" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.1rem; position: relative;">
+            <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem;">
+              <span style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.95rem;">2</span>
+              <strong style="color: var(--text-main); font-size: 1rem;">التحميل التلقائي (Startup Suite)</strong>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.7; margin: 0;">
+              من نافذة <code>APPLOAD</code>، اضغط على أيقونة الحقيبة <strong>Contents...</strong> تحت قسم <strong>Startup Suite</strong> وأضف ملف الليسب ليعمل تلقائياً مع فتح الأوتوكاد دوماً.
+            </p>
+          </div>
+
+          <!-- الطريقة الثالثة -->
+          <div class="guide-step-card" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.1rem; position: relative;">
+            <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem;">
+              <span style="background: rgba(245, 158, 11, 0.15); color: var(--accent-orange); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.95rem;">3</span>
+              <strong style="color: var(--text-main); font-size: 1rem;">السحب والإفلات (Drag & Drop)</strong>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.7; margin: 0;">
+              اسحب ملف الليسب المُنزل بالماوس وأسقطه مباشرة داخل شاشة الرسم في AutoCAD وسيتم تحميله فوراً لتكتب بعدها أمر التشغيل.
+            </p>
+          </div>
+        </div>
+
+        <!-- نصائح تنفيذ الأمر وحل رسائل الأمان -->
+        <div style="margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px dashed var(--border-color); display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
+          <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+            <i class="fas fa-terminal" style="color: var(--accent-cyan); font-size: 1.1rem; margin-top: 3px;"></i>
+            <div style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.7;">
+              <strong style="color: var(--text-main);">تنفيذ الأمر:</strong> كل بطاقة أدناه تحتوي على زر أمر التشغيل الخاص بها (مثل: <code>AL3MERLG</code> أو <code>DimTable</code>)، انقر على الزر لنسخه والصقه في شريط أوامر الأوتوكاد.
+            </div>
+          </div>
+          <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+            <i class="fas fa-shield-alt" style="color: var(--accent-emerald); font-size: 1.1rem; margin-top: 3px;"></i>
+            <div style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.7;">
+              <strong style="color: var(--text-main);">المسارات الموثوقة (Trusted Locations):</strong> لتفادي رسالة التحذير الأمنية، اكتب <code>OPTIONS</code> &larr; تبويب <code>Files</code> &larr; <code>Trusted Locations</code> وأضف مسار مجلد الليسبات.
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- شريط البحث والفلترة الخاص بالليسبات -->
       <div class="toolbar-wrapper" style="margin-bottom: 2rem;">
         <div class="search-box">

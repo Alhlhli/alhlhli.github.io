@@ -215,10 +215,121 @@ document.addEventListener('click', (e) => {
       if (btn) btn.setAttribute('aria-expanded', 'false');
     });
   }
+  if (!e.target.closest('.lisp-tg-dropdown-wrapper')) {
+    document.querySelectorAll('.lisp-tg-dropdown-wrapper.open').forEach(el => {
+      el.classList.remove('open');
+      const btn = el.querySelector('.btn-lisp-tg');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+  }
 });
 
 window.renderForumDropdownHtml = renderForumDropdownHtml;
 window.toggleForumDropdown = toggleForumDropdown;
+
+// توليد قائمة تليجرام المنسدلة للتحديثات وطلب الشروحات لليسبات (+966504667646)
+function renderLispTelegramDropdownHtml(lisp) {
+  if (!lisp) return '';
+  const phone = '966504667646';
+  const lispName = lisp.name || '';
+  const lispCmd = lisp.command || '';
+
+  const msgExplain = `السلام عليكم م. عامر، أود طلب شرح توضيحي لليسب: ${lispName} (أمر التشغيل: ${lispCmd})`;
+  const msgFeature = `السلام عليكم م. عامر، أود اقتراح ميزة إضافية لليسب: ${lispName} (أمر التشغيل: ${lispCmd})`;
+  const msgBug = `السلام عليكم م. عامر، أود الإبلاغ عن مشكلة أو استفسار في تشغيل ليسب: ${lispName} (أمر التشغيل: ${lispCmd})`;
+
+  const urlExplain = `https://t.me/+${phone}?text=${encodeURIComponent(msgExplain)}`;
+  const urlFeature = `https://t.me/+${phone}?text=${encodeURIComponent(msgFeature)}`;
+  const urlBug = `https://t.me/+${phone}?text=${encodeURIComponent(msgBug)}`;
+
+  return `
+    <div class="lisp-tg-dropdown-wrapper">
+      <button type="button" class="btn btn-telegram btn-sm btn-lisp-tg" onclick="toggleLispTelegramDropdown(this, event)" aria-haspopup="true" aria-expanded="false" title="تواصل عبر تليجرام (+966504667646): طلب شرح، ميزة، أو إبلاغ عن مشكلة">
+        <i class="fab fa-telegram-plane"></i>
+        <span>التحديثات</span>
+        <i class="fas fa-chevron-up drop-arrow" style="font-size:0.65rem; margin-right:3px;"></i>
+      </button>
+      <div class="lisp-tg-dropdown-menu" role="menu">
+        <div class="lisp-tg-dropdown-header">
+          <i class="fab fa-telegram-plane"></i> تليجرام م. عامر (+966504667646)
+        </div>
+        <a href="${urlExplain}" target="_blank" rel="noopener" class="lisp-tg-dropdown-item item-explain" role="menuitem" title="طلب شرح وفيديو لهذا الليسب">
+          <div class="lisp-tg-item-title">
+            <i class="fas fa-video" style="color:#38bdf8;"></i>
+            <span>طلب شرح الليسب</span>
+          </div>
+          <i class="fas fa-external-link-alt lisp-tg-ext"></i>
+        </a>
+        <a href="${urlFeature}" target="_blank" rel="noopener" class="lisp-tg-dropdown-item item-feature" role="menuitem" title="طلب إضافة ميزة جديدة أو فكرة مطورة">
+          <div class="lisp-tg-item-title">
+            <i class="fas fa-plus-circle" style="color:#34d399;"></i>
+            <span>طلب ميزة إضافية</span>
+          </div>
+          <i class="fas fa-external-link-alt lisp-tg-ext"></i>
+        </a>
+        <a href="${urlBug}" target="_blank" rel="noopener" class="lisp-tg-dropdown-item item-bug" role="menuitem" title="إبلاغ عن مشكلة أو خطأ في الأوتوكاد">
+          <div class="lisp-tg-item-title">
+            <i class="fas fa-exclamation-triangle" style="color:#fb7185;"></i>
+            <span>إبلاغ عن مشكلة</span>
+          </div>
+          <i class="fas fa-external-link-alt lisp-tg-ext"></i>
+        </a>
+      </div>
+    </div>
+  `;
+}
+
+function toggleLispTelegramDropdown(button, event) {
+  if (event) {
+    event.stopPropagation();
+    event.preventDefault();
+  }
+  const wrapper = button.closest('.lisp-tg-dropdown-wrapper');
+  if (!wrapper) return;
+
+  const isOpen = wrapper.classList.contains('open');
+
+  // إغلاق أي قوائم مفتوحة أخرى في الصفحة
+  document.querySelectorAll('.lisp-tg-dropdown-wrapper.open, .forum-dropdown-wrapper.open').forEach(el => {
+    if (el !== wrapper) {
+      el.classList.remove('open');
+      const b = el.querySelector('button');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  if (isOpen) {
+    wrapper.classList.remove('open');
+    button.setAttribute('aria-expanded', 'false');
+  } else {
+    wrapper.classList.add('open');
+    button.setAttribute('aria-expanded', 'true');
+  }
+}
+
+// استخراج خطوات التحميل والتشغيل في الأوتوكاد من طريقة تنفيذ الليسب
+function extractLispExecutionGuide(lisp) {
+  if (!lisp) return {};
+  const fileName = lisp.file || 'ملف الليسب';
+  const command = lisp.command || '';
+  
+  // استخراج الإجراء العملي الفعلي من حقل usage
+  let actionText = lisp.usage || '';
+  actionText = actionText.replace(/^(اكتب\s*(أمر|الأمر)?\s*[a-zA-Z0-9_\-\s]+(أو\s*[a-zA-Z0-9_\-]+)?(\s*بعد\s*تحميل\s*ملف\s*[^،,\.]+)?(\s*(ثم|و))?\s*)/i, '').trim();
+  if (!actionText || actionText.length < 5) {
+    actionText = lisp.description || 'اتبع الإرشادات والمطالبات التفاعلية الظاهرة في شريط الأوامر.';
+  }
+
+  return {
+    step1: `اكتب في الأوتوكاد أمر <code>APPLOAD</code> (أو <code>AP</code>) واضغط Enter ثم اختر ملف <code>${escapeHtml(fileName)}</code> واضغط <strong>Load</strong> (أو اسحبه وأفلته مباشرة داخل شاشة الرسم).`,
+    step2: `اكتب في سطر الأوامر (Command Line) أمر: <code>${escapeHtml(command)}</code> ثم اضغط <strong>Enter</strong> أو <strong>Space</strong> لبدء التشغيل.`,
+    step3: `<strong>إجراء التطبيق في المخطط:</strong> ${escapeHtml(actionText)}`
+  };
+}
+
+window.renderLispTelegramDropdownHtml = renderLispTelegramDropdownHtml;
+window.toggleLispTelegramDropdown = toggleLispTelegramDropdown;
+window.extractLispExecutionGuide = extractLispExecutionGuide;
 
 /* ===================================================================
    3. توليد المحتوى حسب الصفحة الحالية (Page-Specific Rendering)
@@ -392,12 +503,22 @@ function renderFullLisps(items) {
   if (!container || !items) return;
 
   container.innerHTML = items.map(lisp => {
+    const lispImg = lisp.image || `image/lisps/${lisp.id}.svg`;
+    const downloadPath = lisp.folder && lisp.file ? `${encodeURI(lisp.folder)}/${encodeURI(lisp.file)}` : '#';
+
     return `
-      <div class="custom-card item-card" data-category="${escapeHtml(lisp.category)}" data-id="${lisp.id}">
+      <div class="custom-card item-card lisp-card" data-category="${escapeHtml(lisp.category)}" data-id="${lisp.id}">
+        <!-- معاينة الأوتوكاد بطريقة Lee Mac -->
+        <div class="card-image-box lisp-cad-preview-box" onclick="openLispModal('${lisp.id}')" title="معاينة الليسب بطريقة Lee Mac - انقر لعرض الشرح">
+          <img src="${lispImg}" alt="${escapeHtml(lisp.name)}" loading="lazy" class="card-preview-thumb">
+          <div class="image-zoom-overlay"><i class="fas fa-terminal"></i> أمر التشغيل: ${escapeHtml(lisp.command)}</div>
+        </div>
+
         <div>
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 0.75rem;">
-            <span class="lisp-command-badge">
-              <i class="fas fa-terminal"></i> أمر: ${escapeHtml(lisp.command)}
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 0.75rem; gap:0.5rem; flex-wrap:wrap;">
+            <span class="lisp-command-badge" onclick="copyLispCommand('${escapeHtml(lisp.command)}', this)" title="انقر لنسخ الأمر للأوتوكاد" style="cursor:pointer;">
+              <i class="fas fa-terminal"></i> ${escapeHtml(lisp.command)}
+              <i class="far fa-copy" style="font-size:0.75rem; margin-right:4px; opacity:0.85;"></i>
             </span>
             <span class="category-tag">${escapeHtml(lisp.category)}</span>
           </div>
@@ -406,18 +527,23 @@ function renderFullLisps(items) {
           <p class="card-description">${escapeHtml(lisp.description)}</p>
 
           <div class="usage-note">
-            <i class="fas fa-info-circle"></i> <strong>طريقة الاستخدام:</strong> ${escapeHtml(lisp.usage)}
+            <i class="fas fa-play-circle" style="color:var(--accent-cyan);"></i> <strong>طريقة التنفيذ:</strong> ${escapeHtml(lisp.usage)}
           </div>
-          ${lisp.folder ? `<div style="font-size:0.8rem; color:var(--text-dim); margin-bottom:0.75rem;"><i class="fas fa-folder"></i> المجلد: ${escapeHtml(lisp.folder)}</div>` : ''}
+          ${lisp.folder ? `
+            <div style="font-size:0.78rem; color:var(--text-dim); margin-bottom:0.75rem; word-break:break-all;">
+              <i class="fas fa-folder-open" style="color:var(--accent-orange);"></i> <strong>المجلد:</strong> <code>./${escapeHtml(lisp.folder)}/${escapeHtml(lisp.file || '')}</code>
+            </div>
+          ` : ''}
         </div>
 
-        <div class="card-footer-actions">
-          <button class="btn btn-primary btn-sm" onclick="openLispModal('${lisp.id}')">
-            <i class="fas fa-code"></i> عرض التفاصيل والأمر
-          </button>
-          <a href="https://t.me/pro3mer" target="_blank" rel="noopener" class="btn btn-telegram btn-sm">
-            <i class="fab fa-telegram-plane"></i> قناة pro3mer
+        <div class="card-footer-actions" style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center;">
+          <a href="${downloadPath}" download="${escapeHtml(lisp.file || 'lisp.lsp')}" class="btn btn-primary btn-sm btn-download-lisp" title="تحميل ملف الليسب مباشرة">
+            <i class="fas fa-download"></i> تحميل مباشر
           </a>
+          <button class="btn btn-outline btn-sm" onclick="openLispModal('${lisp.id}')" title="عرض تفاصيل وشرح الليسب">
+            <i class="fas fa-info-circle"></i> الشرح
+          </button>
+          ${renderLispTelegramDropdownHtml(lisp)}
         </div>
       </div>
     `;
@@ -565,7 +691,11 @@ function renderFullTelegram(items) {
   const container = document.getElementById('telegramFullGrid');
   if (!container || !items) return;
 
-  container.innerHTML = items.map(tg => {
+  const phone = '966504667646';
+  const requestMsg = 'السلام عليكم م. عامر، أود طلب ملف أو برنامج: ';
+  const requestUrl = `https://t.me/+${phone}?text=${encodeURIComponent(requestMsg)}`;
+
+  const channelsHtml = items.map(tg => {
     return `
       <div class="telegram-card item-card" data-category="${escapeHtml(tg.category)}" data-id="${tg.id}">
         <div>
@@ -594,6 +724,39 @@ function renderFullTelegram(items) {
       </div>
     `;
   }).join('');
+
+  // بطاقة مخصصة إضافية لطلب ملف أو برنامج
+  const requestCardHtml = `
+    <div class="telegram-card item-card" data-category="خدمات وتواصل" data-id="tg-request-item" style="border: 2px dashed rgba(34,158,217,0.5); background: linear-gradient(180deg, rgba(34,158,217,0.12), rgba(21,25,31,0.95)); box-shadow: 0 8px 24px rgba(34,158,217,0.15);">
+      <div>
+        <div class="tg-header">
+          <div class="tg-avatar" style="background: linear-gradient(135deg, #0284c7, #229ed9); box-shadow: 0 4px 15px rgba(34,158,217,0.4);">
+            <i class="fas fa-file-download"></i>
+          </div>
+          <div class="tg-info">
+            <h4>طلب ملف أو برنامج</h4>
+            <span class="tg-username">@alhlhli / +966 504667646</span>
+          </div>
+        </div>
+
+        <div class="tg-members-badge" style="background: rgba(14,165,233,0.18); color: var(--accent-cyan); border: 1px solid rgba(14,165,233,0.3);">
+          <i class="fas fa-bolt"></i> طلب مباشر ومخصص
+        </div>
+
+        <p class="card-description">
+          إذا كنت تبحث عن برنامج هندسي غير معروض، ليسب أوتوكاد بمواصفات معينة، أو تطبيق أندرويد مفعل، يمكنك إرسال طلبك مباشرة وسنعمل على توفيره ومشاركته معك.
+        </p>
+      </div>
+
+      <div class="card-footer-actions" style="margin-top:1.25rem;">
+        <a href="${requestUrl}" target="_blank" rel="noopener" class="btn btn-telegram" style="width:100%; font-weight:700; box-shadow: 0 4px 18px rgba(34,158,217,0.45);">
+          <i class="fab fa-telegram-plane"></i> طلب ملف أو برنامج
+        </a>
+      </div>
+    </div>
+  `;
+
+  container.innerHTML = channelsHtml + requestCardHtml;
 }
 
 // 6. توليد المقالات في articles.html
@@ -873,43 +1036,123 @@ window.openImageModal = openImageModal;
 window.openModal = openModal;
 window.closeModal = closeModal;
 
+function copyLispCommand(cmd, btn) {
+  if (!cmd) return;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(cmd).then(() => {
+      showToast(`تم نسخ أمر الأوتوكاد: ${cmd}`, 'success');
+      if (btn) {
+        const orig = btn.innerHTML;
+        btn.innerHTML = `<i class="fas fa-check" style="color:var(--accent-emerald)"></i> تم النسخ`;
+        setTimeout(() => { btn.innerHTML = orig; }, 1800);
+      }
+    }).catch(() => {
+      prompt('انسخ أمر التشغيل يدوياً:', cmd);
+    });
+  } else {
+    prompt('انسخ أمر التشغيل يدوياً:', cmd);
+  }
+}
+window.copyLispCommand = copyLispCommand;
+
 function openLispModal(lispId) {
   const data = window.SITE_DATA;
   const lisp = data?.lisps?.find(l => l.id === lispId);
   if (!lisp) return;
 
+  const lispImg = lisp.image || `image/lisps/${lisp.id}.svg`;
+  const downloadPath = lisp.folder && lisp.file ? `${encodeURI(lisp.folder)}/${encodeURI(lisp.file)}` : '#';
+  const execSteps = extractLispExecutionGuide(lisp);
+
+  const phone = '966504667646';
+  const msgExplain = `السلام عليكم م. عامر، أود طلب شرح توضيحي لليسب: ${lisp.name} (أمر التشغيل: ${lisp.command})`;
+  const msgFeature = `السلام عليكم م. عامر، أود اقتراح ميزة إضافية لليسب: ${lisp.name} (أمر التشغيل: ${lisp.command})`;
+  const msgBug = `السلام عليكم م. عامر، أود الإبلاغ عن مشكلة أو استفسار في تشغيل ليسب: ${lisp.name} (أمر التشغيل: ${lisp.command})`;
+
+  const urlExplain = `https://t.me/+${phone}?text=${encodeURIComponent(msgExplain)}`;
+  const urlFeature = `https://t.me/+${phone}?text=${encodeURIComponent(msgFeature)}`;
+  const urlBug = `https://t.me/+${phone}?text=${encodeURIComponent(msgBug)}`;
+
   const bodyHtml = `
-    <div style="margin-bottom:1rem;">
-      <span class="lisp-command-badge" style="font-size:1.1rem; padding:0.4rem 1rem;">
-        <i class="fas fa-terminal"></i> أمر التشغيل في أوتوكاد: ${escapeHtml(lisp.command)}
-      </span>
-      <h3 style="margin-top:0.75rem; color:var(--text-main);">${escapeHtml(lisp.name)}</h3>
-      <p style="color:var(--text-muted); margin-top:0.5rem;">${escapeHtml(lisp.description)}</p>
+    <!-- معاينة الأوتوكاد بطريقة Lee Mac داخل النافذة -->
+    <div style="text-align:center; margin-bottom:1.25rem; border-radius:10px; overflow:hidden; border:1px solid var(--border-color); background:#15191f; box-shadow:0 6px 20px rgba(0,0,0,0.35);">
+      <img src="${lispImg}" alt="${escapeHtml(lisp.name)}" style="width:100%; max-height:260px; object-fit:contain; display:block;">
     </div>
 
-    <div class="usage-note" style="margin-top:1rem;">
-      <strong><i class="fas fa-book-reader"></i> تعليمات التحميل والتشغيل:</strong><br>
-      1. افتح برنامج الأوتوكاد واكتب أمر <code>APPLOAD</code> ثم اضغط Enter.<br>
-      2. حدد ملف الليسب واضغط Load.<br>
-      3. اكتب الأمر <code>${escapeHtml(lisp.command)}</code> في سطر الأوامر ونفذ الإجراء.
+    <div style="margin-bottom:1rem;">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:0.75rem; flex-wrap:wrap; margin-bottom:0.75rem;">
+        <span class="lisp-command-badge" style="font-size:1.15rem; padding:0.4rem 1.1rem; cursor:pointer;" onclick="copyLispCommand('${escapeHtml(lisp.command)}', this)" title="انقر لنسخ الأمر للأوتوكاد">
+          <i class="fas fa-terminal"></i> أمر التشغيل: ${escapeHtml(lisp.command)}
+          <i class="far fa-copy" style="font-size:0.8rem; margin-right:6px;"></i>
+        </span>
+        <span class="category-tag">${escapeHtml(lisp.category)}</span>
+      </div>
+
+      <h3 style="margin-top:0.5rem; color:var(--text-main); font-size:1.25rem;">${escapeHtml(lisp.name)}</h3>
+      <p style="color:var(--text-muted); margin-top:0.5rem; line-height:1.7;">${escapeHtml(lisp.description)}</p>
+    </div>
+
+    <!-- خطوات التحميل والتشغيل في الأوتوكاد (مستخرجة من طريقة تنفيذ الليسب) -->
+    <div style="margin-top:1.25rem; background:rgba(255,255,255,0.02); border:1px solid var(--border-color); border-radius:10px; padding:1.15rem;">
+      <h4 style="font-size:0.98rem; color:var(--accent-cyan); margin:0 0 0.85rem; display:flex; align-items:center; gap:0.5rem;">
+        <i class="fas fa-cogs"></i> تعليمات التحميل والتشغيل في AutoCAD (مستخرجة من طريقة التنفيذ):
+      </h4>
+      <div style="display:flex; flex-direction:column; gap:0.65rem; font-size:0.88rem; line-height:1.75; color:var(--text-muted);">
+        <div style="display:flex; gap:0.6rem; align-items:flex-start;">
+          <span style="background:rgba(56,189,248,0.15); color:var(--accent-cyan); width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.8rem; flex-shrink:0;">1</span>
+          <div><strong>تحميل الليسب:</strong> ${execSteps.step1}</div>
+        </div>
+        <div style="display:flex; gap:0.6rem; align-items:flex-start;">
+          <span style="background:rgba(16,185,129,0.15); color:var(--accent-emerald); width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.8rem; flex-shrink:0;">2</span>
+          <div><strong>استدعاء الأمر:</strong> ${execSteps.step2}</div>
+        </div>
+        <div style="display:flex; gap:0.6rem; align-items:flex-start;">
+          <span style="background:rgba(245,158,11,0.15); color:var(--accent-orange); width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.8rem; flex-shrink:0;">3</span>
+          <div>${execSteps.step3}</div>
+        </div>
+      </div>
     </div>
 
     ${lisp.folder ? `
-      <div style="background:rgba(255,255,255,0.03); padding:0.75rem; border-radius:8px; border:1px solid var(--border-color); margin-top:1rem;">
-        <strong><i class="fas fa-folder-open"></i> مسار الملف في المجلد الأصلي:</strong><br>
-        <code>D:\\ذكاء\\ليسبات\\${escapeHtml(lisp.folder)}</code>
+      <div style="background:rgba(255,255,255,0.03); padding:0.75rem 1rem; border-radius:8px; border:1px solid var(--border-color); margin-top:1rem;">
+        <div style="font-size:0.85rem; color:var(--text-dim); margin-bottom:0.3rem;"><i class="fas fa-folder-open" style="color:var(--accent-orange);"></i> مسار المجلد المباشر في الموقع:</div>
+        <code style="word-break:break-all; font-size:0.85rem;">./${escapeHtml(lisp.folder)}/${escapeHtml(lisp.file || '')}</code>
       </div>
     ` : ''}
+
+    <!-- صندوق طلب الشرح، ميزة إضافية، أو إبلاغ عن مشكلة عبر تليجرام 966504667646 -->
+    <div style="margin-top:1.25rem; background:rgba(34,158,217,0.08); border:1px solid rgba(34,158,217,0.3); border-radius:10px; padding:1.1rem;">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem; flex-wrap:wrap; gap:0.5rem;">
+        <strong style="color:#38bdf8; font-size:0.95rem;">
+          <i class="fab fa-telegram-plane"></i> الدعم والتحديثات عبر تليجرام (+966504667646):
+        </strong>
+        <span style="font-size:0.8rem; color:var(--text-dim);">تحويل مباشر مع نص الرسالة</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:0.6rem;">
+        <a href="${urlExplain}" target="_blank" rel="noopener" class="btn btn-sm" style="background:#0284c7; color:#fff; justify-content:center; font-weight:700;">
+          <i class="fas fa-video"></i> طلب شرح الليسب
+        </a>
+        <a href="${urlFeature}" target="_blank" rel="noopener" class="btn btn-sm" style="background:#0d9488; color:#fff; justify-content:center; font-weight:700;">
+          <i class="fas fa-plus-circle"></i> طلب ميزة إضافية
+        </a>
+        <a href="${urlBug}" target="_blank" rel="noopener" class="btn btn-sm" style="background:#e11d48; color:#fff; justify-content:center; font-weight:700;">
+          <i class="fas fa-exclamation-triangle"></i> إبلاغ عن مشكلة
+        </a>
+      </div>
+    </div>
   `;
 
   const footerHtml = `
-    <button class="btn btn-outline btn-sm" onclick="closeModal()">إغلاق</button>
-    <a href="https://t.me/pro3mer" target="_blank" rel="noopener" class="btn btn-telegram btn-sm">
-      <i class="fab fa-telegram-plane"></i> طلب أو تحميل من قناة pro3mer
+    <a href="${downloadPath}" download="${escapeHtml(lisp.file || 'lisp.lsp')}" class="btn btn-primary btn-sm btn-download-lisp">
+      <i class="fas fa-download"></i> تحميل ملف الليسب (${escapeHtml(lisp.file || 'lsp')})
     </a>
+    <button class="btn btn-outline btn-sm" onclick="copyLispCommand('${escapeHtml(lisp.command)}', this)">
+      <i class="fas fa-copy"></i> نسخ أمر التشغيل
+    </button>
+    <button class="btn btn-outline btn-sm" onclick="closeModal()">إغلاق</button>
   `;
 
-  openModal(`<i class="fas fa-drafting-compass" style="color:var(--accent-cyan)"></i> تفاصيل ليسب الأوتوكاد`, bodyHtml, footerHtml);
+  openModal(`<i class="fas fa-drafting-compass" style="color:var(--accent-cyan)"></i> تفاصيل وتحميل ليسب الأوتوكاد`, bodyHtml, footerHtml);
 }
 
 function openArticleModal(articleId) {

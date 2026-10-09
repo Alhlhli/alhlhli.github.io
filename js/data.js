@@ -1,4 +1,4 @@
-/**
+﻿/**
  * ===================================================================
  * قاعدة البيانات الشاملة والمعتمدة للمهندس عامر الحلحلي (Amer Al-Hlhli)
  * https://alhlhli.github.io/
@@ -225,7 +225,7 @@ const SITE_DATA = {
     {
       id: "sohar-villas-rajhi-2022",
       title: "مجمع فلل صحار السكني (14 فيلا) – الراجحي (2022)",
-      role: "نائب مدير المشروع",
+      role: "مدير المكتب الفني",
       client: "أوقاف الشيخ سليمان الراجحي",
       year: "2022",
       location: "بريدة - القصيم",
@@ -234,7 +234,7 @@ const SITE_DATA = {
     {
       id: "al-basateen-rajhi-2021",
       title: "مجمع شقق البساتين (153 شقة سكنية) – الراجحي (2021)",
-      role: "نائب مدير المشروع",
+      role: "مدير المكتب الفني",
       client: "أوقاف الشيخ سليمان الراجحي",
       year: "2021",
       location: "بريدة - القصيم",
@@ -1454,6 +1454,7 @@ const SITE_DATA = {
   lisps: [
     {
       id: "lisp-layout-gen",
+      image: "image/lisps/lisp-layout-gen.svg",
       name: "مولد التخطيطات الذكي للأوتوكاد (AL3MER LayoutGen)",
       command: "AL3MERLG",
       folder: "مولد التخطيطات Layouts",
@@ -1464,6 +1465,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-dim-table-pro",
+      image: "image/lisps/lisp-dim-table-pro.svg",
       name: "تجميع الأبعاد المحددة وتوليد جدول كميات فوري (DimTable)",
       command: "DimTable",
       folder: "لتجميع الابعاد المحددة وتجميعها في جدول",
@@ -1474,6 +1476,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-asd-lengths-angles",
+      image: "image/lisps/lisp-asd-lengths-angles.svg",
       name: "رسم الأطوال والزوايا والإحداثيات التلقائي (ASD Al3mer)",
       command: "asd",
       folder: "رسم الابعاد والاحداثيات",
@@ -1484,6 +1487,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-block-manager",
+      image: "image/lisps/lisp-block-manager.svg",
       name: "مدير البلوكات الشامل (BlockManager)",
       command: "BlockManager",
       folder: "مدير البلوكات - استبدال- اعادة تسمية - تغيير مركز",
@@ -1494,6 +1498,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-cad2map-google-earth",
+      image: "image/lisps/lisp-cad2map-google-earth.svg",
       name: "تصدير خطوط ومسارات الكاد إلى قوقل إيرث (CAD2MAP)",
       command: "CAD2MAP",
       folder: "لاستخراج الخطوط الى قوقل ايرث",
@@ -1504,6 +1509,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-text-count",
+      image: "image/lisps/lisp-text-count.svg",
       name: "عداد وحاصر النصوص التلقائي في المخطط (TextCounter)",
       command: "TEXTCOUNT",
       folder: "عداد النصوص",
@@ -1514,6 +1520,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-block-dim-walls",
+      image: "image/lisps/lisp-block-dim-walls.svg",
       name: "أبعاد البلوكات إلى الجدران وحواف المبنى (DBW)",
       command: "DBW",
       folder: "ابعاد البلوكات",
@@ -1524,6 +1531,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-insert-multiple-dwg",
+      image: "image/lisps/lisp-insert-multiple-dwg.svg",
       name: "إدراج وتجميع عدة ملفات في ملف واحد (IMD)",
       command: "IMD",
       folder: "ادراج عدة ملفات في ملف واحد",
@@ -1534,6 +1542,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-multi-offset",
+      image: "image/lisps/lisp-multi-offset.svg",
       name: "إزاحة مرة واحدة لعدة أشكال (MIO)",
       command: "MIO",
       folder: "ازاحة مرة واحدة لعدة اشكال",
@@ -1544,6 +1553,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-find-replace-rects",
+      image: "image/lisps/lisp-find-replace-rects.svg",
       name: "استبدال النصوص المتقدم ومعالجة المربعات (FRR)",
       command: "FRR",
       folder: "استبدال النصوص وخاصة المربعات",
@@ -1554,6 +1564,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-points-to-blocks",
+      image: "image/lisps/lisp-points-to-blocks.svg",
       name: "استبدال النقاط المساحية ببلوكات (P2B)",
       command: "P2B",
       folder: "استبدال النقاط ببلوك",
@@ -1564,6 +1575,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-export-polyline-coords",
+      image: "image/lisps/lisp-export-polyline-coords.svg",
       name: "استخراج إحداثيات بولي لاين إلى ملف نصي (PLXY)",
       command: "PLXY",
       folder: "استخراج إحداثيات بولي لاين إلى ملف نصي",
@@ -1574,6 +1586,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-rename-block-by-text",
+      image: "image/lisps/lisp-rename-block-by-text.svg",
       name: "إعادة تسمية البلوك بحسب النص الداخلي (RBN)",
       command: "RBN",
       folder: "اعادة تسمية البلوك بحسب النص",
@@ -1584,6 +1597,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-block-distance-dim",
+      image: "image/lisps/lisp-block-distance-dim.svg",
       name: "التقاط مراكز البلوكات وعمل أبعاد متتالية بينها (BDD)",
       command: "BDD",
       folder: "التقاط مراكز البلوكات وعمل بعد بينهم",
@@ -1594,6 +1608,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-total-length-sum",
+      image: "image/lisps/lisp-total-length-sum.svg",
       name: "تجميع وحساب إجمالي الأطوال (TL)",
       command: "TL",
       folder: "تجميع الأطوال",
@@ -1604,6 +1619,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-dimensions-as-text",
+      image: "image/lisps/lisp-dimensions-as-text.svg",
       name: "تجميع الأبعاد وتحويلها لنصوص قابلة للتعديل (SMM)",
       command: "SMM",
       folder: "تجميع الابعاد كنصوص",
@@ -1614,6 +1630,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-area-manager-tables",
+      image: "image/lisps/lisp-area-manager-tables.svg",
       name: "تجميع المساحات وتوليد جدول الحصر (AreaManager)",
       command: "AreaManager",
       folder: "تجميع المساحات في جداول",
@@ -1624,6 +1641,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-sum-text-numbers",
+      image: "image/lisps/lisp-sum-text-numbers.svg",
       name: "تجميع وجمع الأرقام داخل النصوص (SUMT)",
       command: "SUMT",
       folder: "تجميع النصوص",
@@ -1634,6 +1652,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-insert-folder-dwgs",
+      image: "image/lisps/lisp-insert-folder-dwgs.svg",
       name: "تجميع ملفات مجلد الكاد في ملف واحد (InsertFolderDWGs)",
       command: "InsertFolderDWGs",
       folder: "تجميع ملفات الكاد الى ملف واحد",
@@ -1644,6 +1663,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-thick-pline-to-boundary",
+      image: "image/lisps/lisp-thick-pline-to-boundary.svg",
       name: "تحويل البولي لاين ذو السماكة إلى حدود مزدوجة (XX)",
       command: "XX",
       folder: "تحويل البولي لاين ذو السماكة لحدود",
@@ -1654,6 +1674,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-join-lines-arcs-pline",
+      image: "image/lisps/lisp-join-lines-arcs-pline.svg",
       name: "تحويل وتوصيل الخطوط والأقواس إلى بولي لاين (JARC)",
       command: "JARC",
       folder: "تحويل الى بولي لاين",
@@ -1664,6 +1685,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-rectangles-to-blocks",
+      image: "image/lisps/lisp-rectangles-to-blocks.svg",
       name: "تحويل المستطيلات المغلقة إلى بلوكات معرفة (PL2BK)",
       command: "PL2BK",
       folder: "تحويل مستطيلات الى بلوكات",
@@ -1674,6 +1696,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-polyline-segments-to-arc",
+      image: "image/lisps/lisp-polyline-segments-to-arc.svg",
       name: "تحويل مقاطع البولي لاين المتعددة إلى قوس موحد (r2r)",
       command: "r2r",
       folder: "تحويل مقاطع البولي لاين المتعددة (التي تشكل قوساً) إلى قوس واحد",
@@ -1684,6 +1707,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-rotate-180-keep-text",
+      image: "image/lisps/lisp-rotate-180-keep-text.svg",
       name: "تدوير المخطط 180 درجة والحفاظ على قراءة النصوص (ROT180)",
       command: "ROT180",
       folder: "تدوير المخطط 180 والحفاظ على النصوص والابعاد",
@@ -1694,6 +1718,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-auto-numbering-ar",
+      image: "image/lisps/lisp-auto-numbering-ar.svg",
       name: "ترقيم تلقائي تصاعدي ذكي عربي وإنجليزي (NUM_AR)",
       command: "NUM_AR",
       folder: "ترقيم تلقائي",
@@ -1704,6 +1729,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-export-points-excel",
+      image: "image/lisps/lisp-export-points-excel.svg",
       name: "تصدير النقاط والإحداثيات إلى إكسل مباشرة (EPL)",
       command: "EPL",
       folder: "تصدير النقاط اكسل",
@@ -1714,6 +1740,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-reset-att-angles",
+      image: "image/lisps/lisp-reset-att-angles.svg",
       name: "تصفير وتوحيد زوايا نصوص الأتربيوت (AT0)",
       command: "AT0",
       folder: "تغيير زوايا النصوص في بلوك اتربيوت",
@@ -1724,6 +1751,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-change-basepoint",
+      image: "image/lisps/lisp-change-basepoint.svg",
       name: "تغيير نقطة الأصل والمرجعية للبلوك (BP)",
       command: "BP",
       folder: "تغيير مرجعية البلوك",
@@ -1734,6 +1762,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-distribute-blocks-intersections",
+      image: "image/lisps/lisp-distribute-blocks-intersections.svg",
       name: "توزيع البلوكات على تقاطعات الشبكات (ARB)",
       command: "ARB",
       folder: "توزيع البلوكات على التقاطعات",
@@ -1744,6 +1773,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-distribute-blocks-rectangle",
+      image: "image/lisps/lisp-distribute-blocks-rectangle.svg",
       name: "توزيع منتظم للبلوكات داخل مستطيل ومساحة (X2X)",
       command: "X2X",
       folder: "توزيع البلوكات على مستطيل",
@@ -1754,6 +1784,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-delete-block-attributes",
+      image: "image/lisps/lisp-delete-block-attributes.svg",
       name: "حذف وتطهير الأتربيوت من البلوكات (DELATTR)",
       command: "DELATTR",
       folder: "حذف الاتربيوت من البلوك",
@@ -1764,6 +1795,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-merge-similar-blocks",
+      image: "image/lisps/lisp-merge-similar-blocks.svg",
       name: "دمج وتحليل البلوكات المتشابهة بالاسم (BLK2MERGE)",
       command: "BLK2MERGE",
       folder: "دمج البلوكات المتشابهه بالاسم",
@@ -1774,6 +1806,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-join-close-texts",
+      image: "image/lisps/lisp-join-close-texts.svg",
       name: "دمج النصوص المتقاربة في كتلة MText واحدة (MTX)",
       command: "MTX",
       folder: "دمج النصوص المتقاربة",
@@ -1784,6 +1817,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-fillet-all-intersections",
+      image: "image/lisps/lisp-fillet-all-intersections.svg",
       name: "تطبيق فيليت تلقائي وسريع بين الخطوط (FILLALL)",
       command: "FILLALL",
       folder: "عمل فيلب بين الخطوط",
@@ -1794,6 +1828,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-fix-block-units",
+      image: "image/lisps/lisp-fix-block-units.svg",
       name: "إعادة ضبط وحدات البلوك من مليمتر إلى متر (FixBlockUnits)",
       command: "FixBlockUnits",
       folder: "لاعادة ضبط البلوك تحويل من ملي الى متر",
@@ -1804,6 +1839,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-select-similar-area",
+      image: "image/lisps/lisp-select-similar-area.svg",
       name: "تحديد واختيار المتشابه في المساحة (SS)",
       command: "ss",
       folder: "لتحديد المتشابه في المساحة",
@@ -1814,6 +1850,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-delete-hatch-from-blocks",
+      image: "image/lisps/lisp-delete-hatch-from-blocks.svg",
       name: "حذف الهاتش والتهشير من داخل البلوكات (HB)",
       command: "HB",
       folder: "لحذف الهاتش من البلوكات",
@@ -1824,6 +1861,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-draw-vertex-points",
+      image: "image/lisps/lisp-draw-vertex-points.svg",
       name: "وضع وتوقيع النقاط على أركان الأشكال (VPoints)",
       command: "VPoints",
       folder: "وضع النقاط",
@@ -1834,6 +1872,7 @@ const SITE_DATA = {
     },
     {
       id: "lisp-divide-polyline-fixed-distance",
+      image: "image/lisps/lisp-divide-polyline-fixed-distance.svg",
       name: "وضع نقاط على البولي لاين بمسافات ثابتة (DIVP)",
       command: "DIVP",
       folder: "وضع النقاط على البولي لاين بمسافات ثابته",
