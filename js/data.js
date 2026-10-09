@@ -1461,7 +1461,7 @@ const SITE_DATA = {
       category: "إخراج المخططات واللوحات",
       description: "أداة تم برمجتها بواسطة م. عامر لتوليد قوالب وتخطيطات Layouts للأوتوكاد بشكل آلي، وتحديد مقاييس الرسم وضبط منافذ الرؤية Viewports وإعدادات البلوكات والكليشات الهندسية بدقة.",
       usage: "اكتب أمر AL3MERLG بعد تحميل ملف AL3MER_LayoutGen.lsp",
-      file: "AL3MER_LayoutGen.lsp"
+      file: "SmartLayout.lsp"
     },
     {
       id: "lisp-dim-table-pro",
@@ -1472,7 +1472,7 @@ const SITE_DATA = {
       category: "حصر الكميات والأبعاد",
       description: "يقوم باختيار الأبعاد المحددة في المخطط واستخراج قيمها وتجميعها تلقائياً وإنشاء جدول أنيق ومفصل داخل الأوتوكاد، مفيد جداً لحصر أبعاد الفتحات والأعمدة والكمرات.",
       usage: "اكتب الأمر DimTable واختر الأبعاد المحددة لتوليد الجدول.",
-      file: "DimTable.lsp"
+      file: "‏‏DimTablePro - نسخة.lsp"
     },
     {
       id: "lisp-asd-lengths-angles",
@@ -1483,7 +1483,7 @@ const SITE_DATA = {
       category: "المساحة والرسم الهندسي",
       description: "ليسب مطور من م. عامر لرسم الأطوال والزوايا تلقائياً للبولي لاين المحدد وتحديد المسافة بين الخط والبعد بدقة، مهم جداً عند رسم مساحات الأراضي وقطع الأراضي متعددة الزوايا.",
       usage: "اكتب الأمر asd ثم اختر البولي لاين وحدد مسافة البعد.",
-      file: "ASD_Al3mer.lsp"
+      file: "‏‏‏‏‏‏‏‏ASD_Al3mer رسم الأطوال والزوايا والاحداثيات - FINAL.lsp"
     },
     {
       id: "lisp-block-manager",
@@ -1494,7 +1494,7 @@ const SITE_DATA = {
       category: "إدارة البلوكات والرموز",
       description: "أداة متقدمة بواجهة رسومية للتعامل مع البلوكات: استبدال بلوك بآخر في المخطط كاملاً، إعادة تسمية البلوكات دفعة واحدة، وتغيير نقطة المركز والمرجعية BasePoint بدون تشويه موضعها.",
       usage: "اكتب الأمر BlockManager واختر الإجراء المطلوب من الواجهة الرسومية.",
-      file: "BlockManager.LSP"
+      file: "‏‏BlockManager - نسخة (15).LSP"
     },
     {
       id: "lisp-cad2map-google-earth",
@@ -1505,7 +1505,7 @@ const SITE_DATA = {
       category: "المساحة ونظم المعلومات GIS",
       description: "يقوم بتحويل الخطوط والمسارات وقطع الأراضي من الأوتوكاد وتصديرها إلى ملفات KML / KMZ متوافقة فورياً مع Google Earth بإحداثياتها الصحيحة.",
       usage: "اكتب الأمر CAD2MAP وحدد العناصر المطلوب تصديرها.",
-      file: "CAD2MAP.lsp"
+      file: "‏‏CAD2MAP - نسخة (10).lsp"
     },
     {
       id: "lisp-text-count",
@@ -1516,7 +1516,7 @@ const SITE_DATA = {
       category: "حصر النصوص والبيانات",
       description: "يقوم بعد وحصر كافة النصوص المحددة وتصنيفها حسب القيمة والطبقة واستخراج إحصائية شاملة بعدد تكرار كل نص داخل المخطط.",
       usage: "اكتب الأمر TEXTCOUNT ثم حدد نافذة النصوص.",
-      file: "textcounter.lsp"
+      file: "‏‏text_counter_full_text - نسخة.lsp"
     },
     {
       id: "lisp-block-dim-walls",
@@ -1527,7 +1527,7 @@ const SITE_DATA = {
       category: "الأبعاد والتفاصيل المعمارية",
       description: "يقوم بحساب ورسم المسافات والأبعاد الأوتوماتيكية بين البلوكات وأقرب جدار أو حد معماري لتحديد مواضع الفرش والإنارة.",
       usage: "اكتب أمر DBW وحدد البلوكات والجدران المحيطة.",
-      file: "cursor.lsp"
+      file: "‏‏cursor - نسخة (2).lsp"
     },
     {
       id: "lisp-insert-multiple-dwg",
@@ -1538,7 +1538,7 @@ const SITE_DATA = {
       category: "إدارة الملفات والمشاريع",
       description: "يقوم بإدراج مجلد كامل يحتوي على عشرات ملفات DWG كبلوكات مصفوفة بانتظام داخل ملف كاد واحد بنقرة زر.",
       usage: "اكتب أمر IMD أو IFD وحدد المجلد المطلوب.",
-      file: "a.lsp"
+      file: "ISD.lsp"
     },
     {
       id: "lisp-multi-offset",
@@ -1549,7 +1549,7 @@ const SITE_DATA = {
       category: "الرسم والتعديل السريع",
       description: "تنفيذ أمر Offset لعدد كبير من الخطوط والأشكال المغلقة في نفس الوقت بمسافة محددة ولجهة الداخل أو الخارج دفعة واحدة.",
       usage: "اكتب أمر MIO وحدد مسافة الإزاحة ثم اختر العناصر.",
-      file: "MIO.LSP"
+      file: "‏‏MIO - نسخة.LSP"
     },
     {
       id: "lisp-find-replace-rects",
@@ -1560,7 +1560,7 @@ const SITE_DATA = {
       category: "معالجة النصوص والرموز",
       description: "بحث واستبدال متقدم للنصوص في المخطط وخاصة معالجة النصوص المحاطة بمربعات أو رموز غير مفهومة.",
       usage: "اكتب أمر FRR وأدخل النص المطلوب البحث عنه وبديله.",
-      file: "FRR.lsp"
+      file: "‏‏FRR - نسخة (9).lsp"
     },
     {
       id: "lisp-points-to-blocks",
@@ -1571,7 +1571,7 @@ const SITE_DATA = {
       category: "المساحة والرسم الهندسي",
       description: "واجهة متطورة لاستبدال كافة النقاط المساحية المرفوعة من الأجهزة المساحية ببلوكات شجر، أعمدة، أو مناهيل جاهزة.",
       usage: "اكتب الأمر P2B واختر اسم البلوك والنقاط المستهدفة.",
-      file: "P2B.lsp"
+      file: "‏‏P2B - نسخة (3).lsp"
     },
     {
       id: "lisp-export-polyline-coords",
@@ -1582,7 +1582,7 @@ const SITE_DATA = {
       category: "المساحة ونظم المعلومات GIS",
       description: "استخراج إحداثيات رؤوس وأركان البولي لاين X و Y بدقة وتصديرها مباشرة إلى ملف نصي أو CSV لحساب المساحات والمناسيب.",
       usage: "اكتب أمر PLXY وحدد البولي لاين المطلوب.",
-      file: "AS.lsp"
+      file: "‏‏AS - نسخة.lsp"
     },
     {
       id: "lisp-rename-block-by-text",
@@ -1593,7 +1593,7 @@ const SITE_DATA = {
       category: "إدارة البلوكات والرموز",
       description: "يقوم بقراءة النص المكتوب داخل البلوك وإعادة تسمية البلوك تلقائياً بنفس قيمة النص لتنظيم مكتبة البلوكات.",
       usage: "اكتب الأمر RBN واختر البلوكات المستهدفة.",
-      file: "RBN.lsp"
+      file: "‏‏RBN - نسخة.lsp"
     },
     {
       id: "lisp-block-distance-dim",
@@ -1604,7 +1604,7 @@ const SITE_DATA = {
       category: "الأبعاد والتفاصيل المعمارية",
       description: "يلتقط مراكز البلوكات المحددة (أعمدة، إنارة، كاميرات) ويرسم خطوط أبعاد Dimension متتالية بين مراكزها بدقة تامة.",
       usage: "اكتب أمر BDD وحدد سلسلة البلوكات.",
-      file: "BDD.LSP"
+      file: "‏‏BDD2.LSP"
     },
     {
       id: "lisp-total-length-sum",
@@ -1615,7 +1615,7 @@ const SITE_DATA = {
       category: "حصر الكميات والأبعاد",
       description: "حساب مجموع أطوال كافة الخطوط والأقواس والبولي لاين المحددة دفعة واحدة وإظهار الناتج برسالة أو كتابته في المخطط.",
       usage: "اكتب أمر TL أو PolySum ثم حدد شبكة الخطوط.",
-      file: "10.LSP"
+      file: "TT.LSP"
     },
     {
       id: "lisp-dimensions-as-text",
@@ -1637,7 +1637,7 @@ const SITE_DATA = {
       category: "حصر الكميات والأبعاد",
       description: "أداة متقدمة لحساب مساحات الغرف والشقق والقطع المحددة وتوليد جدول كميات ومساحات تلقائي في المخطط.",
       usage: "اكتب أمر AreaManager أو AM واختر المسطحات المغلقة.",
-      file: "AreaManager_v5.lsp"
+      file: "‏‏AreaTable - نسخة (11).LSP"
     },
     {
       id: "lisp-sum-text-numbers",
@@ -1648,7 +1648,7 @@ const SITE_DATA = {
       category: "حصر النصوص والبيانات",
       description: "يقوم بجمع كافة الأرقام الموجودة داخل النصوص المحددة في الرسم وإعطاء المجموع الإجمالي الفوري.",
       usage: "اكتب أمر SUMT وحدد نافذة الأرقام والنصوص.",
-      file: "SUMT.LSP"
+      file: "‏‏SUMT - نسخة (7).LSP"
     },
     {
       id: "lisp-insert-folder-dwgs",
@@ -1670,7 +1670,7 @@ const SITE_DATA = {
       category: "الرسم والتعديل السريع",
       description: "تحويل خطوط البولي لاين ذات السمك العريض (Width) إلى حدود مغلقة مزدوجة لتسهيل أعمال الهاتش والتفريغ الإنشائي.",
       usage: "اكتب أمر XX وحدد خطوط البولي لاين السميكة.",
-      file: "xx_final.lsp"
+      file: "xx fINAL.lsp"
     },
     {
       id: "lisp-join-lines-arcs-pline",
@@ -1681,7 +1681,7 @@ const SITE_DATA = {
       category: "الرسم والتعديل السريع",
       description: "دمج وتوصيل الخطوط والأقواس المتصلة تلقائياً وتحويلها إلى كائن بولي لاين مغلق وموحد بنقرة واحدة.",
       usage: "اكتب أمر JARC أو JPL وحدد العناصر المتصلة.",
-      file: "JARC.lsp"
+      file: "merge_polylines.lsp"
     },
     {
       id: "lisp-rectangles-to-blocks",
@@ -1703,7 +1703,7 @@ const SITE_DATA = {
       category: "الرسم والتعديل السريع",
       description: "معالجة وتنعيم المخططات المستوردة من برامج أخرى عبر تحويل التكسرات ومقاطع الخطوط القصيرة إلى قوس دائري حقيقي.",
       usage: "اكتب أمر r2r وحدد مقاطع البولي لاين المتكسرة.",
-      file: "r2r.lsp"
+      file: "r2r (2).lsp"
     },
     {
       id: "lisp-rotate-180-keep-text",
@@ -1714,7 +1714,7 @@ const SITE_DATA = {
       category: "الرسم والتعديل السريع",
       description: "تدوير المخطط كاملاً 180 درجة مع تعديل زوايا دوران النصوص والأبعاد تلقائياً لتبقى مقروءة من الأسفل للأعلى.",
       usage: "اكتب أمر ROT180 أو FIX180 وحدد عناصر الرسم.",
-      file: "ROT180.lsp"
+      file: "‏‏ROT180 - نسخة (4).lsp"
     },
     {
       id: "lisp-auto-numbering-ar",
@@ -1725,7 +1725,7 @@ const SITE_DATA = {
       category: "معالجة النصوص والرموز",
       description: "ترقيم تلقائي للأبواب والنوافذ والغرف ومواقف السيارات بتسلسل تصاعدي ذكي مع بادئة أو لاحقة وخيارات الخط.",
       usage: "اكتب أمر NUM_AR وانقر على العناصر بالترتيب.",
-      file: "NUM_AR.lsp"
+      file: "‏‏NUM_AR - نسخة (2).lsp"
     },
     {
       id: "lisp-export-points-excel",
@@ -1736,7 +1736,7 @@ const SITE_DATA = {
       category: "المساحة ونظم المعلومات GIS",
       description: "تصدير النقاط المساحية وإحداثيات X, Y, Z مع رقم النقطة ووصفها مباشرة إلى ملف Microsoft Excel دون برامج وسيطة.",
       usage: "اكتب أمر EPL أو ExportPoints وحدد النقاط.",
-      file: "deepseek_lisp.lsp"
+      file: "EPL_PRO_v6.LSP"
     },
     {
       id: "lisp-reset-att-angles",
@@ -1758,7 +1758,7 @@ const SITE_DATA = {
       category: "إدارة البلوكات والرموز",
       description: "تغيير وتعديل نقطة الارتكاز Base Point للبلوك دون تغيير موقعه الفعلي في الرسمة وتحديث كافة النسخ المتطابقة.",
       usage: "اكتب أمر BP واختر البلوك ثم حدد النقطة الجديدة.",
-      file: "BP_OK.LSP"
+      file: "‏‏BP OK -FINAL.LSP"
     },
     {
       id: "lisp-distribute-blocks-intersections",
@@ -1769,7 +1769,7 @@ const SITE_DATA = {
       category: "إدارة البلوكات والرموز",
       description: "إدراج وتوزيع البلوكات (أعمدة، قواعد، إنارة) تلقائياً عند جميع نقاط تقاطع المحاور والخطوط المحددة دفعة واحدة.",
       usage: "اكتب أمر ARB وحدد اسم البلوك وشبكة المحاور.",
-      file: "ARB.lsp"
+      file: "‏‏ARB - نسخة.lsp"
     },
     {
       id: "lisp-distribute-blocks-rectangle",
@@ -1780,7 +1780,7 @@ const SITE_DATA = {
       category: "إدارة البلوكات والرموز",
       description: "توزيع مصفوفة بلوكات (سبوت لايت، كشافات، مقاعد) داخل حيز مستطيل مع تحديد عدد الصفوف والأعمدة والمسافات البينية.",
       usage: "اكتب أمر X2X وحدد المستطيل وعدد العناصر.",
-      file: "x2x.lsp"
+      file: "X2X - نسخة (4).LSP"
     },
     {
       id: "lisp-delete-block-attributes",
@@ -1791,7 +1791,7 @@ const SITE_DATA = {
       category: "إدارة البلوكات والرموز",
       description: "إزالة كافة حقول الأتربيوت المرفقة مع البلوك وتحويله إلى بلوك رسومي نظيف لتخفيف حجم الملف وتفادي أخطاء التصدير.",
       usage: "اكتب أمر DELATTR وحدد البلوكات.",
-      file: "deepseek_lisp.lsp"
+      file: "DelAtt.lsp"
     },
     {
       id: "lisp-merge-similar-blocks",
@@ -1802,7 +1802,7 @@ const SITE_DATA = {
       category: "إدارة البلوكات والرموز",
       description: "دمج البلوكات المتطابقة في الشكل والمختلفة بالاسم أو الاسم المكرر وتوحيدها تحت تعريف بلوك واحد نظيف.",
       usage: "اكتب أمر BLK2MERGE لتشغيل معالج الدمج.",
-      file: "BLK2MERGE2.LSP"
+      file: "BLK90.lsp"
     },
     {
       id: "lisp-join-close-texts",
@@ -1824,7 +1824,7 @@ const SITE_DATA = {
       category: "الرسم والتعديل السريع",
       description: "تنفيذ أمر Fillet بنصف قطر محدد لجميع زوايا وتقاطعات الخطوط والبولي لاين المحددة دفعة واحدة.",
       usage: "اكتب أمر FILLALL وحدد نصف القطر والعناصر.",
-      file: "fillet_offset_lisp.lsp"
+      file: "mf.lsp"
     },
     {
       id: "lisp-fix-block-units",
@@ -1835,7 +1835,7 @@ const SITE_DATA = {
       category: "إدارة البلوكات والرموز",
       description: "تصحيح مقياس رسم البلوكات المستوردة التي تم رسمها بالمليمتر وتحويلها لتتوافق مع المخططات المعمارية المترية.",
       usage: "اكتب أمر FixBlockUnits وحدد البلوكات المصغرة أو المكبرة.",
-      file: "DelAtt.lsp"
+      file: "‏‏DelAtt - نسخة.lsp"
     },
     {
       id: "lisp-select-similar-area",
@@ -1846,7 +1846,7 @@ const SITE_DATA = {
       category: "حصر الكميات والأبعاد",
       description: "فلترة واختيار جميع الأشكال والبولي لاين المغلقة التي تمتلك نفس مساحة الشكل المحدد لتسريع أعمال الحصر والتلوين.",
       usage: "اكتب أمر ss وحدد الشكل المرجعي.",
-      file: "ss.lsp"
+      file: "SS_SelectSimilar (1).lsp"
     },
     {
       id: "lisp-delete-hatch-from-blocks",
@@ -1857,7 +1857,7 @@ const SITE_DATA = {
       category: "إدارة البلوكات والرموز",
       description: "حذف كافة عناصر التهشير Hatch العالقة داخل البلوكات المعمارية دون الحاجة لتفجير البلوك أو تعديله يدوياً.",
       usage: "اكتب أمر HB أو DHBLK وحدد البلوكات المراد تنظيفها.",
-      file: "HB.lsp"
+      file: "DeleteHatchFromSelectedBlocks_OK.lsp"
     },
     {
       id: "lisp-draw-vertex-points",
@@ -3105,3 +3105,5 @@ const SITE_DATA = {
 };
 
 window.SITE_DATA = SITE_DATA;
+
+

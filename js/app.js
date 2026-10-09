@@ -504,7 +504,7 @@ function renderFullLisps(items) {
 
   container.innerHTML = items.map(lisp => {
     const lispImg = lisp.image || `image/lisps/${lisp.id}.svg`;
-    const downloadPath = lisp.folder && lisp.file ? `${encodeURI(lisp.folder)}/${encodeURI(lisp.file)}` : '#';
+    const downloadPath = lisp.folder && lisp.file ? `lisp/${encodeURI(lisp.folder)}/${encodeURI(lisp.file)}` : (lisp.file ? `lisp/${encodeURI(lisp.file)}` : '#');
 
     return `
       <div class="custom-card item-card lisp-card" data-category="${escapeHtml(lisp.category)}" data-id="${lisp.id}">
@@ -531,13 +531,13 @@ function renderFullLisps(items) {
           </div>
           ${lisp.folder ? `
             <div style="font-size:0.78rem; color:var(--text-dim); margin-bottom:0.75rem; word-break:break-all;">
-              <i class="fas fa-folder-open" style="color:var(--accent-orange);"></i> <strong>المجلد:</strong> <code>./${escapeHtml(lisp.folder)}/${escapeHtml(lisp.file || '')}</code>
+              <i class="fas fa-folder-open" style="color:var(--accent-orange);"></i> <strong>المجلد:</strong> <code>./lisp/${escapeHtml(lisp.folder)}/${escapeHtml(lisp.file || '')}</code>
             </div>
           ` : ''}
         </div>
 
         <div class="card-footer-actions" style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center;">
-          <a href="${downloadPath}" download="${escapeHtml(lisp.file || 'lisp.lsp')}" class="btn btn-primary btn-sm btn-download-lisp" title="تحميل ملف الليسب مباشرة">
+          <a href="${downloadPath}" download="${escapeHtml(lisp.file || 'lisp.lsp')}" class="btn btn-primary btn-sm btn-download-lisp" title="تحميل ملف الليسب مباشرة من مجلد lisp">
             <i class="fas fa-download"></i> تحميل مباشر
           </a>
           <button class="btn btn-outline btn-sm" onclick="openLispModal('${lisp.id}')" title="عرض تفاصيل وشرح الليسب">
@@ -1061,7 +1061,7 @@ function openLispModal(lispId) {
   if (!lisp) return;
 
   const lispImg = lisp.image || `image/lisps/${lisp.id}.svg`;
-  const downloadPath = lisp.folder && lisp.file ? `${encodeURI(lisp.folder)}/${encodeURI(lisp.file)}` : '#';
+  const downloadPath = lisp.folder && lisp.file ? `lisp/${encodeURI(lisp.folder)}/${encodeURI(lisp.file)}` : (lisp.file ? `lisp/${encodeURI(lisp.file)}` : '#');
   const execSteps = extractLispExecutionGuide(lisp);
 
   const phone = '966504667646';
@@ -1116,7 +1116,7 @@ function openLispModal(lispId) {
     ${lisp.folder ? `
       <div style="background:rgba(255,255,255,0.03); padding:0.75rem 1rem; border-radius:8px; border:1px solid var(--border-color); margin-top:1rem;">
         <div style="font-size:0.85rem; color:var(--text-dim); margin-bottom:0.3rem;"><i class="fas fa-folder-open" style="color:var(--accent-orange);"></i> مسار المجلد المباشر في الموقع:</div>
-        <code style="word-break:break-all; font-size:0.85rem;">./${escapeHtml(lisp.folder)}/${escapeHtml(lisp.file || '')}</code>
+        <code style="word-break:break-all; font-size:0.85rem;">./lisp/${escapeHtml(lisp.folder)}/${escapeHtml(lisp.file || '')}</code>
       </div>
     ` : ''}
 
