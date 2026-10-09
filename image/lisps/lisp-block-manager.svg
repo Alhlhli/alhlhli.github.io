@@ -21,19 +21,29 @@
   <text x="14" y="22" font-family="'Consolas', 'Courier New', monospace" font-size="11" fill="#78889b">[-][Top][2D Wireframe]</text>
 
   <!-- Top Right Watermark Badge -->
-  <rect x="348" y="10" width="120" height="20" rx="4" fill="#1f2632" stroke="#323e50" stroke-width="1"/>
-  <text x="408" y="24" font-family="'Consolas', monospace" font-size="10" font-weight="bold" fill="#00e5ff" text-anchor="middle">AUTOLISP &bull; CAD</text>
+  <rect x="330" y="10" width="138" height="22" rx="4" fill="#1f2632" stroke="#323e50" stroke-width="1"/>
+  <text x="399" y="25" font-family="'Consolas', monospace" font-size="10" font-weight="bold" fill="#00e5ff" text-anchor="middle">AUTOLISP &#8226; BKM</text>
+
+  <!-- AutoCAD Crosshair Watermark in Corner -->
+  <g stroke="#ffffff" stroke-width="0.8" opacity="0.18">
+    <line x1="25" y1="135" x2="65" y2="135"/>
+    <line x1="45" y1="115" x2="45" y2="155"/>
+    <rect x="41" y="131" width="8" height="8" fill="none"/>
+  </g>
+
+  <!-- Center Drawing: Exact Vector Geometry from LISP Guide -->
+  <g transform="translate(100, 56) scale(1.4)">
+    <circle cx="75" cy="60" r="22" fill="none" stroke="#5aa9ff" stroke-width="4"/><circle cx="75" cy="60" r="8" fill="#5aa9ff"/><line x1="75" y1="28" x2="75" y2="38" stroke="#5aa9ff" stroke-width="4"/><line x1="75" y1="82" x2="75" y2="92" stroke="#5aa9ff" stroke-width="4"/><line x1="43" y1="60" x2="53" y2="60" stroke="#5aa9ff" stroke-width="4"/><line x1="97" y1="60" x2="107" y2="60" stroke="#5aa9ff" stroke-width="4"/><rect x="125" y="42" width="45" height="36" fill="none" stroke="#ffd166" stroke-width="3" rx="4"/>
+  </g>
 
   <!-- UCS Icon (Bottom Left) -->
   <g transform="translate(14, 212)">
     <line x1="12" y1="20" x2="12" y2="2" stroke="#4caf50" stroke-width="2"/>
     <polygon points="12,0 9,6 15,6" fill="#4caf50"/>
     <text x="10" y="-3" font-family="sans-serif" font-size="10" font-weight="bold" fill="#4caf50" text-anchor="middle">Y</text>
-
     <line x1="12" y1="20" x2="30" y2="20" stroke="#f44336" stroke-width="2"/>
     <polygon points="32,20 26,17 26,23" fill="#f44336"/>
     <text x="38" y="23" font-family="sans-serif" font-size="10" font-weight="bold" fill="#f44336">X</text>
-
     <rect x="9" y="17" width="6" height="6" fill="none" stroke="#cfd8dc" stroke-width="1"/>
     <text x="12" y="32" font-family="'Consolas', monospace" font-size="8" fill="#78909c" text-anchor="middle">WCS</text>
   </g>
@@ -41,35 +51,7 @@
   <!-- Command Line Bar (Bottom) -->
   <rect x="0" y="255" width="480" height="45" fill="url(#cmdBarGrad)" stroke="#232a35" stroke-width="1"/>
   <rect x="10" y="262" width="460" height="30" rx="4" fill="#181e26" stroke="#2d3747" stroke-width="1"/>
-  <text x="20" y="281" font-family="'Consolas', 'Courier New', monospace" font-size="11" fill="#ffffff">
-    <tspan fill="#00e5ff" font-weight="bold">Command:</tspan> BlockManager <tspan fill="#90a4ae">&lt;Select source block: 24 instances updated&gt;</tspan>
+  <text x="20" y="281" font-family="'Consolas', 'Courier New', monospace" font-size="10.5" fill="#ffffff">
+    <tspan fill="#00e5ff" font-weight="bold">Command:</tspan> BlockManager <tspan fill="#ffd166">[BKM]</tspan> <tspan fill="#90a4ae">&lt;Block Manager - Replace, Rename &amp; Base&gt;</tspan>
   </text>
-  <!-- Block Manager UI Simulation -->
-  <rect x="90" y="45" width="300" height="190" rx="6" fill="#1e2530" stroke="#4a5568" stroke-width="2"/>
-  <rect x="90" y="45" width="300" height="26" rx="6" fill="#2d3748"/>
-  <text x="105" y="62" font-family="'Consolas', monospace" font-size="11" font-weight="bold" fill="#00e5ff">Block Manager Pro - Al3mer</text>
-  <!-- Block Preview Box -->
-  <rect x="110" y="85" width="110" height="100" fill="#141820" stroke="#00e5ff" stroke-width="1"/>
-  <!-- Block Entity (Chair/Desk) inside -->
-  <rect x="135" y="115" width="60" height="40" rx="3" fill="#2b3548" stroke="#ffd600" stroke-width="1.5"/>
-  <circle cx="165" cy="135" r="8" fill="none" stroke="#00e5ff" stroke-width="1.2"/>
-  <circle cx="165" cy="135" r="2" fill="#ff4081"/>
-  <text x="165" y="170" font-family="'Consolas', monospace" font-size="9" fill="#a0aec0" text-anchor="middle">BasePoint (0,0)</text>
-  <!-- Operations List -->
-  <g transform="translate(235, 85)">
-    <rect width="140" height="24" rx="4" fill="#2b3548" stroke="#00e5ff" stroke-width="1"/>
-    <text x="70" y="16" font-family="'Consolas', monospace" font-size="9" fill="#00e5ff" text-anchor="middle">&bull; Replace Block</text>
-    <rect y="32" width="140" height="24" rx="4" fill="#2b3548"/>
-    <text x="70" y="48" font-family="'Consolas', monospace" font-size="9" fill="#e2e8f0" text-anchor="middle">&bull; Rename Batch</text>
-    <rect y="64" width="140" height="24" rx="4" fill="#2b3548"/>
-    <text x="70" y="80" font-family="'Consolas', monospace" font-size="9" fill="#e2e8f0" text-anchor="middle">&bull; Change Center</text>
-    <rect y="96" width="140" height="24" rx="4" fill="#4caf50"/>
-    <text x="70" y="112" font-family="'Consolas', monospace" font-size="9" font-weight="bold" fill="#000000" text-anchor="middle">Apply to All (24)</text>
-  </g>
-  <!-- AutoCAD Crosshair Cursor -->
-  <g stroke="#ffffff" stroke-width="1" opacity="0.85">
-    <line x1="200" y1="150" x2="270" y2="150"/>
-    <line x1="235" y1="115" x2="235" y2="185"/>
-    <rect x="230" y="145" width="10" height="10" fill="none" stroke="#ffffff" stroke-width="1"/>
-  </g>
 </svg>
