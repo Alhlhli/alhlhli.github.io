@@ -506,24 +506,50 @@ function renderFullLisps(items) {
     const lispImg = lisp.image || `image/lisps/${lisp.id}.svg`;
     const downloadPath = lisp.folder && lisp.file ? `lisp/${encodeURI(lisp.folder)}/${encodeURI(lisp.file)}` : (lisp.file ? `lisp/${encodeURI(lisp.file)}` : '#');
 
+    let reqBadgeHtml = '';
+    if (lisp.req === 'dcl') {
+      reqBadgeHtml = `<span class="lisp-req-badge req-dcl" title="يتطلب واجهة DCL"><i class="fas fa-window-restore"></i> DCL</span>`;
+    } else if (lisp.req === 'excel') {
+      reqBadgeHtml = `<span class="lisp-req-badge req-excel" title="يتطلب Microsoft Excel"><i class="fas fa-file-excel"></i> Excel</span>`;
+    } else if (lisp.req === 'net') {
+      reqBadgeHtml = `<span class="lisp-req-badge req-net" title="يتطلب Google Earth أو اتصال"><i class="fas fa-globe"></i> KML/Earth</span>`;
+    }
+
     return `
       <div class="custom-card item-card lisp-card" data-category="${escapeHtml(lisp.category)}" data-id="${lisp.id}">
-        <!-- معاينة الأوتوكاد بطريقة Lee Mac -->
-        <div class="card-image-box lisp-cad-preview-box" onclick="openLispModal('${lisp.id}')" title="معاينة الليسب بطريقة Lee Mac - انقر لعرض الشرح">
+        <!-- معاينة الأوتوكاد بطريقة Lee Mac مع الرسم التوضيحي المدمج -->
+        <div class="card-image-box lisp-cad-preview-box" onclick="openLispModal('${lisp.id}')" title="معاينة الليسب بطريقة Lee Mac - انقر لعرض الشرح والتحميل">
           <img src="${lispImg}" alt="${escapeHtml(lisp.name)}" loading="lazy" class="card-preview-thumb">
-          <div class="image-zoom-overlay"><i class="fas fa-terminal"></i> أمر التشغيل: ${escapeHtml(lisp.command)}</div>
+          <div class="image-zoom-overlay"><i class="fas fa-terminal"></i> أمر التشغيل: ${escapeHtml(lisp.command)} ${lisp.alias ? `[${escapeHtml(lisp.alias)}]` : ''}</div>
         </div>
 
         <div>
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 0.75rem; gap:0.5rem; flex-wrap:wrap;">
-            <span class="lisp-command-badge" onclick="copyLispCommand('${escapeHtml(lisp.command)}', this)" title="انقر لنسخ الأمر للأوتوكاد" style="cursor:pointer;">
-              <i class="fas fa-terminal"></i> ${escapeHtml(lisp.command)}
-              <i class="far fa-copy" style="font-size:0.75rem; margin-right:4px; opacity:0.85;"></i>
-            </span>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem; gap:0.5rem; flex-wrap:wrap;">
+            <div style="display:flex; gap:0.4rem; align-items:center; flex-wrap:wrap;">
+              <span class="lisp-command-badge" onclick="copyLispCommand('${escapeHtml(lisp.command)}', this)" title="انقر لنسخ أمر التشغيل للأوتوكاد" style="cursor:pointer;">
+                <i class="fas fa-terminal"></i> ${escapeHtml(lisp.command)}
+                <i class="far fa-copy" style="font-size:0.75rem; margin-right:4px; opacity:0.85;"></i>
+              </span>
+              ${lisp.alias ? `
+                <span class="lisp-alias-badge" onclick="copyLispCommand('${escapeHtml(lisp.alias)}', this)" title="انقر لنسخ الأمر السريع (مختصر)">
+                  <i class="fas fa-bolt"></i> ${escapeHtml(lisp.alias)}
+                  <i class="far fa-copy" style="font-size:0.72rem; margin-right:3px; opacity:0.85;"></i>
+                </span>
+              ` : ''}
+              ${reqBadgeHtml}
+            </div>
             <span class="category-tag">${escapeHtml(lisp.category)}</span>
           </div>
 
           <h3 class="card-title">${escapeHtml(lisp.name)}</h3>
+
+          ${lisp.actionSummary ? `
+            <div class="lisp-action-summary" title="شرح العملية من دليل الليسبات">
+              <i class="fas fa-magic" style="color:var(--accent-cyan); flex-shrink:0;"></i>
+              <span>${escapeHtml(lisp.actionSummary)}</span>
+            </div>
+          ` : ''}
+
           <p class="card-description">${escapeHtml(lisp.description)}</p>
 
           <div class="usage-note">
@@ -1065,30 +1091,67 @@ function openLispModal(lispId) {
   const execSteps = extractLispExecutionGuide(lisp);
 
   const phone = '966504667646';
-  const msgExplain = `السلام عليكم م. عامر، أود طلب شرح توضيحي لليسب: ${lisp.name} (أمر التشغيل: ${lisp.command})`;
-  const msgFeature = `السلام عليكم م. عامر، أود اقتراح ميزة إضافية لليسب: ${lisp.name} (أمر التشغيل: ${lisp.command})`;
-  const msgBug = `السلام عليكم م. عامر، أود الإبلاغ عن مشكلة أو استفسار في تشغيل ليسب: ${lisp.name} (أمر التشغيل: ${lisp.command})`;
+  const cmdInfo = lisp.alias ? `${lisp.command} (المختصر: ${lisp.alias})` : lisp.command;
+  const msgExplain = `السلام عليكم م. عامر، أود طلب شرح توضيحي لليسب: ${lisp.name} (أمر التشغيل: ${cmdInfo})`;
+  const msgFeature = `السلام عليكم م. عامر، أود اقتراح ميزة إضافية لليسب: ${lisp.name} (أمر التشغيل: ${cmdInfo})`;
+  const msgBug = `السلام عليكم م. عامر، أود الإبلاغ عن مشكلة أو استفسار في تشغيل ليسب: ${lisp.name} (أمر التشغيل: ${cmdInfo})`;
 
   const urlExplain = `https://t.me/+${phone}?text=${encodeURIComponent(msgExplain)}`;
   const urlFeature = `https://t.me/+${phone}?text=${encodeURIComponent(msgFeature)}`;
   const urlBug = `https://t.me/+${phone}?text=${encodeURIComponent(msgBug)}`;
 
+  let reqNoticeHtml = '';
+  if (lisp.req === 'dcl') {
+    reqNoticeHtml = `
+      <div style="background:rgba(168,85,247,0.1); border:1px solid rgba(168,85,247,0.3); border-radius:8px; padding:0.6rem 0.9rem; margin-bottom:0.9rem; font-size:0.86rem; color:#c084fc; display:flex; align-items:center; gap:0.55rem;">
+        <i class="fas fa-window-restore"></i> <strong>متطلب التشغيل:</strong> يتطلب هذا الليسب نافذة الحوار DCL (Dialog Control Language) المدمجة بالملف.
+      </div>`;
+  } else if (lisp.req === 'excel') {
+    reqNoticeHtml = `
+      <div style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.3); border-radius:8px; padding:0.6rem 0.9rem; margin-bottom:0.9rem; font-size:0.86rem; color:#34d399; display:flex; align-items:center; gap:0.55rem;">
+        <i class="fas fa-file-excel"></i> <strong>متطلب التشغيل:</strong> يتطلب وجود برنامج Microsoft Excel مثبتاً على الجهاز لتصدير البيانات تلقائياً.
+      </div>`;
+  } else if (lisp.req === 'net') {
+    reqNoticeHtml = `
+      <div style="background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.3); border-radius:8px; padding:0.6rem 0.9rem; margin-bottom:0.9rem; font-size:0.86rem; color:#38bdf8; display:flex; align-items:center; gap:0.55rem;">
+        <i class="fas fa-globe"></i> <strong>متطلب التشغيل:</strong> يتطلب برنامج Google Earth أو اتصالاً بالإنترنت لتصدير ملفات KML الجغرافية.
+      </div>`;
+  }
+
   const bodyHtml = `
-    <!-- معاينة الأوتوكاد بطريقة Lee Mac داخل النافذة -->
+    <!-- معاينة الأوتوكاد بطريقة Lee Mac مع الرسم التوضيحي للعملية الهندسية -->
     <div style="text-align:center; margin-bottom:1.25rem; border-radius:10px; overflow:hidden; border:1px solid var(--border-color); background:#15191f; box-shadow:0 6px 20px rgba(0,0,0,0.35);">
-      <img src="${lispImg}" alt="${escapeHtml(lisp.name)}" style="width:100%; max-height:260px; object-fit:contain; display:block;">
+      <img src="${lispImg}" alt="${escapeHtml(lisp.name)}" style="width:100%; max-height:270px; object-fit:contain; display:block;">
     </div>
+
+    ${reqNoticeHtml}
 
     <div style="margin-bottom:1rem;">
       <div style="display:flex; justify-content:space-between; align-items:center; gap:0.75rem; flex-wrap:wrap; margin-bottom:0.75rem;">
-        <span class="lisp-command-badge" style="font-size:1.15rem; padding:0.4rem 1.1rem; cursor:pointer;" onclick="copyLispCommand('${escapeHtml(lisp.command)}', this)" title="انقر لنسخ الأمر للأوتوكاد">
-          <i class="fas fa-terminal"></i> أمر التشغيل: ${escapeHtml(lisp.command)}
-          <i class="far fa-copy" style="font-size:0.8rem; margin-right:6px;"></i>
-        </span>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center;">
+          <span class="lisp-command-badge" style="font-size:1.05rem; padding:0.35rem 0.95rem; cursor:pointer;" onclick="copyLispCommand('${escapeHtml(lisp.command)}', this)" title="انقر لنسخ الأمر للأوتوكاد">
+            <i class="fas fa-terminal"></i> أمر التشغيل: ${escapeHtml(lisp.command)}
+            <i class="far fa-copy" style="font-size:0.8rem; margin-right:6px;"></i>
+          </span>
+          ${lisp.alias ? `
+            <span class="lisp-alias-badge" style="font-size:1rem; padding:0.35rem 0.95rem; cursor:pointer;" onclick="copyLispCommand('${escapeHtml(lisp.alias)}', this)" title="انقر لنسخ الأمر السريع (مختصر)">
+              <i class="fas fa-bolt"></i> أمر سريع: ${escapeHtml(lisp.alias)}
+              <i class="far fa-copy" style="font-size:0.8rem; margin-right:6px;"></i>
+            </span>
+          ` : ''}
+        </div>
         <span class="category-tag">${escapeHtml(lisp.category)}</span>
       </div>
 
       <h3 style="margin-top:0.5rem; color:var(--text-main); font-size:1.25rem;">${escapeHtml(lisp.name)}</h3>
+
+      ${lisp.actionSummary ? `
+        <div class="lisp-action-summary" style="margin:0.75rem 0; font-size:0.95rem; font-weight:600;">
+          <i class="fas fa-magic" style="color:var(--accent-cyan); font-size:1.1rem; flex-shrink:0;"></i>
+          <span>${escapeHtml(lisp.actionSummary)}</span>
+        </div>
+      ` : ''}
+
       <p style="color:var(--text-muted); margin-top:0.5rem; line-height:1.7;">${escapeHtml(lisp.description)}</p>
     </div>
 
@@ -1104,7 +1167,7 @@ function openLispModal(lispId) {
         </div>
         <div style="display:flex; gap:0.6rem; align-items:flex-start;">
           <span style="background:rgba(16,185,129,0.15); color:var(--accent-emerald); width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.8rem; flex-shrink:0;">2</span>
-          <div><strong>استدعاء الأمر:</strong> ${execSteps.step2}</div>
+          <div><strong>استدعاء الأمر:</strong> اكتب في شريط الأوامر <code>${escapeHtml(lisp.command)}</code> ${lisp.alias ? `أو المختصر السريع <code>${escapeHtml(lisp.alias)}</code>` : ''} ثم اضغط Enter.</div>
         </div>
         <div style="display:flex; gap:0.6rem; align-items:flex-start;">
           <span style="background:rgba(245,158,11,0.15); color:var(--accent-orange); width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.8rem; flex-shrink:0;">3</span>
@@ -1147,8 +1210,13 @@ function openLispModal(lispId) {
       <i class="fas fa-download"></i> تحميل ملف الليسب (${escapeHtml(lisp.file || 'lsp')})
     </a>
     <button class="btn btn-outline btn-sm" onclick="copyLispCommand('${escapeHtml(lisp.command)}', this)">
-      <i class="fas fa-copy"></i> نسخ أمر التشغيل
+      <i class="fas fa-copy"></i> نسخ الأمر (${escapeHtml(lisp.command)})
     </button>
+    ${lisp.alias ? `
+      <button class="btn btn-outline btn-sm" onclick="copyLispCommand('${escapeHtml(lisp.alias)}', this)" style="border-color:#f59e0b; color:#f59e0b;">
+        <i class="fas fa-bolt"></i> نسخ المختصر (${escapeHtml(lisp.alias)})
+      </button>
+    ` : ''}
     <button class="btn btn-outline btn-sm" onclick="closeModal()">إغلاق</button>
   `;
 
